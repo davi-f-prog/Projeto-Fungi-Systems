@@ -1,0 +1,87 @@
+body{
+    height: 800px;
+}
+@keyframes anm_corpo{
+    0%{
+        margin-top: 0px;
+        opacity: 0%;
+    }
+
+    100%{
+        margin-top: 130px;
+        opacity: 100%;
+    }
+}
+.div_corpo{
+    margin: 30%;
+    height: 600px;
+    width: 500px;
+    border-radius: 10%;
+    background-color: #0a1725;
+    display: flex;
+    margin-top: 130px;
+    margin-bottom: 0;
+    border-right: 6px solid #1a3c61;
+    border-bottom: 6px solid #1a3c61;
+    border-top: 6px solid #1a3c61;
+    position: absolute;
+    animation-name: anm_corpo;
+    animation-duration: 2s;
+}
+.div_conteudo{
+    margin:13%;
+    line-break: auto;
+    color: rgb(6, 153, 146);
+    text-shadow: 1px 1px black;
+}
+
+.div_ipts{
+    text-align: center;
+    align-self: center;
+    margin-bottom: 50px;
+}
+
+.ipt{
+    height: 20px;
+    width: 350px;
+    border-radius: 5%;
+    border: 3px solid black;
+}
+
+.img_logo{
+    width: 25%;
+    margin-bottom: 20px;
+}
+.div_btns{
+    margin-left: 60px;
+}
+.btn_ent{
+    margin-left: 90px;
+}
+.btn_cad{
+    margin-left: 90px;
+}
+
+.pergunta{
+    margin-left: 50px;
+}
+
+.btn{
+    border-radius: 10%;
+    border: 3px solid black;
+    width: 30%;
+    height: 30px;
+    background-color: rgb(6, 153, 146);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.rodape{
+    background-color: rgb(11,61,50);
+    color: rgba(255,255,255,.5);
+    height: 50px;
+    line-height: 3;
+}
+.copyright{
+    margin-left: 20px;
+}

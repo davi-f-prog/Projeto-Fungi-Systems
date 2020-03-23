@@ -12,6 +12,76 @@ body{
         opacity: 100%;
     }
 }
+.navbar{
+    background-color: #0a1725;
+    border-bottom: 7px solid #1a3c61;
+    position: absolute;
+    width: 100%;
+    color:white;
+}
+.container{
+    margin:0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.navbar-brand{
+    animation-duration: 5s;
+    animation-name: anm_logo;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    width: 40%;
+    color: white;
+}
+.logo{
+    width: 100px;
+    float: left;
+    margin-left: 50px;
+}
+
+.txt_logo{
+    margin-top: 33px; 
+    animation-name: anm_titulo;
+    animation-duration: 1.5s;
+    font-size: 160%;
+    
+}
+.collapse{
+    width: 400px;
+    padding:0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-right: 200px;
+    box-sizing: border-box;
+    flex-basis: auto;
+    display: flex!important;
+}
+.nav-link{
+    list-style: none;
+    text-align: -webkit-match-parent;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    display: block;
+    padding: .5rem 1rem;
+    box-sizing: border-box;
+    text-decoration: none;
+    animation-name:anm_palavras;
+    animation-duration: 3s;
+}
+
 .div_corpo{
     margin: 30%;
     height: 600px;
@@ -41,6 +111,14 @@ body{
     align-self: center;
     margin-bottom: 50px;
 }
+.img_logo{
+    width: 25%;
+    margin-bottom: 20px;
+    margin-left: 130px;
+}
+.txt_prf{
+    font-size: 100%;
+}
 
 .ipt{
     height: 30px;
@@ -48,26 +126,6 @@ body{
     border-radius: 5%;
     border: 3px solid black;
 }
-
-.img_logo{
-    width: 25%;
-    margin-bottom: 20px;
-    margin-left: 130px;
-}
-.div_btns{
-    margin-left: 60px;
-}
-.btn_ent{
-    margin-left: 90px;
-}
-.btn_cad{
-    margin-left: 90px;
-}
-
-.pergunta{
-    margin-left: 50px;
-}
-
 .btn{
     border-radius: 10%;
     border: 3px solid black;
@@ -78,80 +136,22 @@ body{
     cursor: pointer;
 }
 
-.txt_prf{
-    font-size: 100%;
-}
-.navbar{
-    background-color: #0a1725;
-    border-bottom: 7px solid #1a3c61;
-    position: absolute;
-    width: 100%;
-    color:white;
-}
 
-.rodape{
-    background-color: #0a1725;
-    color: rgba(255,255,255,.5);
-    height: 50px;
-    line-height: 3;
-    position: sticky;
-    width: 1000px;
-}
-.copyright{
-    margin-left: 20px;
-}
 
-.logo{
-    width: 100px;
-    float: left;
-    margin-left: 50px;
-}
-.navbar-brand{
-    animation-duration: 5s;
-    animation-name: anm_logo;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    width: 40%;
-    color: white;
-}
 
-.txt_logo{
-    margin-top: 33px; 
-    animation-name: anm_titulo;
-    animation-duration: 1.5s;
-    font-size: 160%;
-    
-}
 
-.container{
-    margin:0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-}
 
-.collapse{
-    width: 400px;
-    padding:0;
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-right: 200px;
-    box-sizing: border-box;
-    flex-basis: auto;
-    display: flex!important;
-}
+
+
+
+
+
+
+
+
+
+
+
 .home{
     color:rgba(255,255,255,.5);
     float: left;
@@ -196,18 +196,7 @@ li{
     width: 400px;
 }
 
-.nav-link{
-    list-style: none;
-    text-align: -webkit-match-parent;
-    padding-right: .5rem;
-    padding-left: .5rem;
-    display: block;
-    padding: .5rem 1rem;
-    box-sizing: border-box;
-    text-decoration: none;
-    animation-name:anm_palavras;
-    animation-duration: 3s;
-}
+
 .informacoes{
     color: rgba(255,255,255,.5);
 }
