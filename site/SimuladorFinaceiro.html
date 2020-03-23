@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/simulador.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+</head>
+<body style="margin: 0; background-color: black;">
+    <img src="./imagens/fungos4.png" style="width: 100%; position: fixed;opacity: 20%;">
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand">
+                <img src="./imagens/Logo.png" class="logo">
+                <div class="txt_logo">FUNGI SYSTEMS</div>
+            </a>
+            <div class="collapse" id="navbarResponsive">
+                <a class="nav-link home" href="home.html">Home</a>
+                <a class="nav-link simulador" href="SimuladorFinaceiro.html">Simulador</a>
+                <a class="nav-link informacoes" href="Informações.html">Informações</a>
+            </div>
+        </div>
+    </nav>
+        <div class="div_corpo">
+            <div class="div_conteudo">
+               <div class="div_ipt">
+                    <img src="imagens/Logo.png" class="img_logo"><br>
+                    <span class="txt_prf">Por favor, digite o tamanho da sua plantação (Em m²):</span><br><br>
+                    <input class="ipt" type="text" placeholder="Tamanho da Plantação" id="sensores">
+                    <button onclick="calcula_valor()" class="btn">Simular Orçamento</button>
+                </div>
+                <div id="div_msg" style="font-size:200%; margin: 30px;"></div>
+            </div>
+        </div>
+</body>
+</html>
+
+<script>
+
+    function calcula_valor(){
+        var calc = Number(sensores.value) * 45;
+        div_msg.innerHTML = `O valor sairá a partir de: <h3>R$${calc}</h3>`;
+    }
+
+</script>
