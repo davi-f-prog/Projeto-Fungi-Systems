@@ -1,16 +1,5 @@
-body{
-    height: 800px;
-}
-@keiframes anm_corpo{
-    0%{
-        margin-top: 0px;
-        opacity: 0%;
-    }
-
-    100%{
-        margin-top: 130px;
-        opacity: 100%;
-    }
+body, html {
+    height: 100%;
 }
 .navbar{
     background-color: #0a1725;
@@ -20,6 +9,7 @@ body{
     color:white;
 }
 .container{
+
     margin:0;
     padding: 0;
     display: flex;
@@ -29,8 +19,6 @@ body{
 }
 
 .navbar-brand{
-    animation-duration: 5s;
-    animation-name: anm_logo;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-flow: row nowrap;
@@ -43,20 +31,21 @@ body{
     color: white;
 }
 .logo{
-    width: 100px;
+    width: 18%;
     float: left;
-    margin-left: 50px;
+    margin-left: 5%;
 }
 
 .txt_logo{
-    margin-top: 33px; 
-    animation-name: anm_titulo;
-    animation-duration: 1.5s;
-    font-size: 160%;
+    margin-top: 4%; 
+    margin-left: 2%;
+    font-size: 200%;
+    font-family: arial;
+    color: white;
     
 }
 .collapse{
-    width: 400px;
+    width: 18%;
     padding:0;
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
@@ -64,7 +53,7 @@ body{
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    margin-right: 200px;
+    margin-right: 10%;
     box-sizing: border-box;
     flex-basis: auto;
     display: flex!important;
@@ -78,26 +67,48 @@ body{
     padding: .5rem 1rem;
     box-sizing: border-box;
     text-decoration: none;
-    animation-name:anm_palavras;
-    animation-duration: 3s;
+    font-family: arial;
+    color: white;
 }
+.btn_ent{
+    background-color: yellowgreen;
+    border: 3px solid black;
+    border-radius: 10%;
+    height: 40px;
+    width: 90px;
+    margin-right: 3%;
+    font-size: 105%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 2px;
+  
+}
+.btn_cad{
+    background-color: rgb(6, 153, 146);
+    border: 3px solid black;
+    border-radius: 10%;
+    height: 40px;
+    width: 90px;
+    margin-right: 63px;
+    font-size: 105%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 2px;
+}
+
 
 .div_corpo{
     margin: 30%;
-    height: 600px;
-    width: 500px;
+    height: 95%;
+    width: 36%;
     border-radius: 10%;
     background-color: #0a1725;
     display: flex;
-    margin-top: 130px;
-    margin-bottom: 0;
+    margin-top: 15%;
+    margin-bottom: 8%;
     border-right: 3px solid black;
     border-bottom: 3px solid black;
     border-top: 3px solid black;
     position: absolute;
-    box-shadow: 9999999px 9999999px 9999999px rgb(0, 0,8);
-    animation-name: anm_corpo;
-    animation-duration: 5s;
+    
 }
 .div_conteudo{
     margin:13%;
@@ -109,12 +120,12 @@ body{
 .div_ipts{
     text-align: center;
     align-self: center;
-    margin-bottom: 50px;
+
 }
 .img_logo{
     width: 25%;
-    margin-bottom: 20px;
-    margin-left: 130px;
+    margin-bottom: 9%;
+    margin-left: 35%;
 }
 .txt_prf{
     font-size: 100%;
@@ -122,7 +133,7 @@ body{
 
 .ipt{
     height: 30px;
-    width: 350px;
+    width: 100%;
     border-radius: 5%;
     border: 3px solid black;
 }
@@ -130,113 +141,43 @@ body{
     border-radius: 10%;
     border: 3px solid black;
     width: 30%;
-    margin-left: 125px;
-    margin-top: 20px;
+    margin-left: 35%;
+    margin-top: 9%;
     background-color: rgb(6, 153, 146);
     cursor: pointer;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.home{
-    color:rgba(255,255,255,.5);
-    float: left;
+.fale{
+    position: absolute;
+    width: 100%;
+    background-color: #0a1725;
+    color:white;
+    height: 25%;
+    line-height: 1;
+    margin-top: 72%;
 }
-.simulador{
-    color: white;
-    animation-name:anm_palavra_simulador;
-    animation-duration: 3s;
+.logo_rede_social{
+    float: right;
+    width: 4%;
+    margin-top: 3%;
+    padding-right: 1%;
+    margin-right: 2%;
+    
 }
-*, ::after, ::before {
+.txt_fale{
+    margin-left: 2%;
+    line-height: 1.9;
+}
+
+
+ul{
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
     box-sizing: border-box;
-}
-.nav-item{
-    height: 30px;
-    width: 400px
-}
-
-li{
-    box-sizing: border-box;
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-.navbar-nav{
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    margin-left: auto!important;
-    display: -webkit-box!important;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-    margin-top: 0;
-    box-sizing: border-box;
-    height: 30px;
-    width: 400px;
-}
-
-
-.informacoes{
-    color: rgba(255,255,255,.5);
-}
-@keyframes anm_palavras{
-    0% {
-        opacity: 0%;
-    }
-    100%{
-       opacity: 100%;
-    }
-}
-@keyframes anm_palavra_simulador{
-    0% {
-        opacity: 0%;
-    }
-    100%{
-       opacity: 100%;
-    }
-}
-
-@keyframes anm_titulo{
-    0%{
-        color:rgba(255,255,255,.5);
-    }
-    5%{
-        color:rgb(22,59,52);
-    }
-    10%{
-        color:rgba(255,255,255,.5);
-    }
-    15%{
-        color:rgb(22,59,52);
-    }
-    20%{
-        color:rgba(255,255,255,.5);
-    }
-    30%{
-        color:rgb(22,59,52);
-    }
-    100%{
-        color:white;
-    }
 }

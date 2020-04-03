@@ -13,8 +13,8 @@
 */
 .gallery {
   position: relative;
-  height: 540px;
-  width: 1250px;
+  height: 85%;
+  width: 92%;
 }
 .gallery .item {
   overflow: hidden;
