@@ -4,15 +4,13 @@ body{
 @keyframes anm_corpo{
     0%{
         margin-top: 0px;
-        opacity: 0%;
+        opacity: 0%
     }
-
     100%{
         margin-top: 130px;
-        opacity: 100%;
+        opacity: 0.8;
     }
 }
-
 .navbar{
     background-color: #0a1725;
     border-bottom: 7px solid #1a3c61;
@@ -21,7 +19,6 @@ body{
     color:white;
 }
 .container{
-
     margin:0;
     padding: 0;
     display: flex;
@@ -29,7 +26,6 @@ body{
     -webkit-box-pack: justify;
     justify-content: space-between;
 }
-
 .navbar-brand{
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -53,8 +49,7 @@ body{
     margin-left: 2%;
     font-size: 200%;
     font-family: arial;
-    color: white;
-    
+    color: white;   
 }
 .collapse{
     width: 18%;
@@ -92,7 +87,6 @@ body{
     font-size: 105%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 2px;
-  
 }
 .btn_cad{
     background-color: rgb(6, 153, 146);
@@ -114,14 +108,17 @@ body{
     display: flex;
     margin-top: 130px;
     margin-bottom: 0;
-    border-right: 3px solid black;
+    border-radius: 20px;
+    /* border-right: 3px solid black;
     border-bottom: 3px solid black;
-    border-top: 3px solid black;
+    border-top: 3px solid black; */
     position: absolute;
-    box-shadow: 9999999px 9999999px 9999999px rgb(0, 0,8);
+    /* box-shadow: 9999999px 9999999px 9999999px rgb(0, 0,8); */
     animation-name: anm_corpo;
     animation-duration: 2s;
+    opacity: 0.8;
     box-sizing: border-box;
+    opacity: 0.8;
 }
 .div_conteudo{
     line-break: auto;
@@ -131,20 +128,20 @@ body{
     position: absolute;
     margin-top: 120px;
     margin-left: 80px;
+    
 }
 .logo_caixa{
     height: 90px;
     margin-left: 165px;
     box-sizing: border-box;
     position: relative;
-    
 }
 .ipt{
-        height: 20px;
-        width: 350px;
-        border-radius: 5%;
-        border: 3px solid black;
-        font-size: 120%;
+    height: 20px;
+    width: 350px;
+    border: 3px solid black;
+    border-radius: 5px;
+    font-size: 100%;
 }
 .btn_cad{
     margin-left: 125px;
@@ -170,14 +167,11 @@ body{
     margin-top: 3%;
     padding-right: 1%;
     margin-right: 2%;
-    
 }
 .txt_fale{
     margin-left: 2%;
     line-height: 1.9;
 }
-
-
 ul{
     display: block;
     list-style-type: disc;

@@ -6,7 +6,6 @@ body{
     box-sizing: border-box;
     font-weight: 400;
     background-color: rgb(0, 0, 0);
-    
 }
 .navbar{
     background-color: #0a1725;
@@ -14,7 +13,6 @@ body{
     width: 100%;
     color:white;
 }
-
 .container{
     margin:0;
     padding: 0;
@@ -48,8 +46,7 @@ body{
     font-family: arial;
     color: white;
 }
-.collapse{
-   
+.collapse{  
     width: 18%;
     padding:0;
     -webkit-box-flex: 1;
@@ -62,8 +59,6 @@ body{
     box-sizing: border-box;
     flex-basis: auto;
     display: flex!important;
- 
-   
 }
 .nav-link{
     list-style: none;
@@ -82,13 +77,11 @@ body{
     color:black;
     border-radius: 10%;
     text-decoration: none;
-    
 }
 .div_bnts{
     width: 180px;
     color: white;
     float: right;
-   
 }
 .btn_ent{
     background-color: yellowgreen;
@@ -181,18 +174,3 @@ ul{
     padding-inline-start: 40px;
     box-sizing: border-box;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -9,7 +9,6 @@ body, html {
     color:white;
 }
 .container{
-
     margin:0;
     padding: 0;
     display: flex;
@@ -17,7 +16,6 @@ body, html {
     -webkit-box-pack: justify;
     justify-content: space-between;
 }
-
 .navbar-brand{
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -35,14 +33,12 @@ body, html {
     float: left;
     margin-left: 5%;
 }
-
 .txt_logo{
     margin-top: 4%; 
     margin-left: 2%;
     font-size: 200%;
     font-family: arial;
-    color: white;
-    
+    color: white;   
 }
 .collapse{
     width: 18%;
@@ -80,7 +76,6 @@ body, html {
     font-size: 105%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 2px;
-  
 }
 .btn_cad{
     background-color: rgb(6, 153, 146);
@@ -93,8 +88,6 @@ body, html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 2px;
 }
-
-
 .div_corpo{
     margin: 30%;
     height: 95%;
@@ -107,8 +100,7 @@ body, html {
     border-right: 3px solid black;
     border-bottom: 3px solid black;
     border-top: 3px solid black;
-    position: absolute;
-    
+    position: absolute;   
 }
 .div_conteudo{
     margin:13%;
@@ -116,11 +108,9 @@ body, html {
     color: rgb(6, 153, 146);
     text-shadow: 1px 1px black;
 }
-
 .div_ipts{
     text-align: center;
     align-self: center;
-
 }
 .img_logo{
     width: 25%;
@@ -130,7 +120,6 @@ body, html {
 .txt_prf{
     font-size: 100%;
 }
-
 .ipt{
     height: 30px;
     width: 100%;
@@ -146,8 +135,6 @@ body, html {
     background-color: rgb(6, 153, 146);
     cursor: pointer;
 }
-
-
 .fale{
     position: absolute;
     width: 100%;
@@ -163,14 +150,11 @@ body, html {
     margin-top: 3%;
     padding-right: 1%;
     margin-right: 2%;
-    
 }
 .txt_fale{
     margin-left: 2%;
     line-height: 1.9;
 }
-
-
 ul{
     display: block;
     list-style-type: disc;
