@@ -1,0 +1,199 @@
+body, html {
+    height: 100%;
+}
+body{
+    margin: 0!important;
+    box-sizing: border-box;
+    font-weight: 400;
+    background-color: rgb(0, 0, 0);
+    
+}
+.navbar{
+    background-color: #0a1725;
+    border-bottom: 7px solid #1a3c61;
+    width: 100%;
+    color:white;
+}
+
+.container{
+    margin:0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+.navbar-brand{
+    text-decoration: none;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    width: 40%;
+    color: white;
+}
+.logo{
+    width: 18%;
+    float: left;
+    margin-left: 5%;
+}
+
+.txt_logo{
+    margin-top: 4%; 
+    margin-left: 2%;
+    font-size: 200%;
+    font-family: Stencil, fantasy;
+    color: #459eff;
+    text-shadow: 3px 3px 3px black;
+}
+
+.collapse{
+    width: 18%;
+    padding:0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-right: 10%;
+    box-sizing: border-box;
+    flex-basis: auto;
+    display: flex!important;
+}
+
+.nav-link{
+    list-style: none;
+    text-align: -webkit-match-parent;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    display: block;
+    padding: .5rem 1rem;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+.btn{
+    width: 90px;
+    color:black;
+    border-radius: 10%;
+    text-decoration: none;
+    
+}
+.div_bnts{
+    width: 180px;
+    color: white;
+    float: right;
+   
+}
+.btn_ent{
+    background-color: rgb(6, 153, 146);
+    border: 3px solid black;
+    height: 40px;
+    margin-right: 1%;
+    font-size: 105%;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 2px;
+  
+}
+.btn_cad{
+    margin-left: 15%;
+    border: 3px solid black;
+    background-color: #459eff;
+    height: 40px;
+    margin-bottom: 0%;
+    font-size: 105%;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 1%;
+}
+.conteudo{
+    margin-left: 6%;
+    background-color: rgb(239, 243, 243);
+    margin-right: 6%;
+    padding-bottom: 50%;
+    
+    border-left: 7px solid black;
+    border-right: 7px solid black;
+    margin-top: 9%;
+    padding-top: 3%;
+}
+.titulo{
+    font-size: 50px;
+    text-align: left;
+    color: rgb(8, 7, 7);
+    padding-bottom: 2%;
+    margin-left: 8%;
+}
+.img_1{
+    width: 43%;
+    border-radius: 10%;
+    margin-left: 12%;
+    margin-right: 2%;
+    margin-top: 7%;
+    float: right;
+}
+.h2_1{
+    margin-left: 8%;
+    text-align: left;
+    width: 160%;
+    margin-top: 6%;
+}
+.fale{
+    width: 100%;
+    background-color: #0a1725;
+    color:white;
+    height: 15%;
+    line-height: 1;
+}
+.logo_rede_social{
+    float: right;
+    width: 3%;
+    margin-top: 3%;
+    padding-right: 1%;
+    margin-right: 2%;
+    
+}
+.txt_fale{
+    margin-left: 2%;
+    line-height: 1.9;
+}
+.rodape{
+    background-color: #0a1725;
+    color: rgba(255,255,255,.5);
+    height: 10%;
+    line-height: 3;
+}
+.copyright{
+    margin-left: 2%;
+}
+
+ul{
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
