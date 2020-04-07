@@ -1,0 +1,195 @@
+body, html {
+    height: 100%;
+}
+
+@keyframes anm_corpo{
+    0%{
+        margin-top: 0px;
+        opacity: 0%;
+    }
+    100%{
+        margin-top: 15%;
+        opacity: 0.9;
+    }
+}
+
+.navbar{
+    background-color: #0a1725;
+    border-bottom: 7px solid #1a3c61;
+    position: absolute;
+    width: 100%;
+    color:white;
+}
+.container{
+
+    margin:0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.navbar-brand{
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    width: 40%;
+    color: white;
+    text-decoration: none;
+}
+.logo{
+    width: 18%;
+    float: left;
+    margin-left: 5%;
+}
+
+.txt_logo{
+    margin-top: 4%; 
+    margin-left: 2%;
+    font-size: 200%;
+    font-family: Stencil, fantasy;
+    color: #459eff;
+    text-shadow: 3px 3px 3px black;
+}
+
+.collapse{
+    width: 18%;
+    padding:0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-right: 10%;
+    box-sizing: border-box;
+    flex-basis: auto;
+    display: flex!important;
+}
+.nav-link{
+    list-style: none;
+    text-align: -webkit-match-parent;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    display: block;
+    padding: .5rem 1rem;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+.btn_ent{
+    background-color: #00979d;
+    border: 3px solid black;
+    border-radius: 10%;
+    height: 40px;
+    width: 90px;
+    margin-right: 3%;
+    font-size: 105%;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 2px;
+  
+}
+.btn_cad{
+    background-color: #367cc8;
+    border: 3px solid black;
+    border-radius: 10%;
+    height: 40px;
+    width: 90px;
+    margin-right: 3%;
+    font-size: 105%;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 2px;
+}
+
+
+.div_corpo{
+    margin: 32%;
+    height: 95%;
+    width: 36%;
+    border-radius: 10%;
+    background-color: #0a1725;
+    display: flex;
+    margin-top: 15%;
+    margin-bottom: 8%;
+    position: absolute;
+    animation-name: anm_corpo;
+    animation-duration: 2s;
+    opacity: 0.9;
+}
+.div_conteudo{
+    margin: 10% ;
+    line-break: auto;
+    color: white;
+    text-shadow: 1px 1px black;
+}
+
+.div_ipts{
+    text-align: center;
+    align-self: center;
+}
+.img_logo{
+    width: 30%;
+    margin-bottom: 5%;
+    margin-left: 35%;
+}
+.txt_prf{
+    font-size: 100%;
+}
+
+.ipt{
+    height: 30px;
+    width: 100%;
+    border-radius: 5%;
+    border: 3px solid black;
+}
+.btn{
+    border-radius: 10%;
+    border: 3px solid black;
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 5%;
+    background-color: rgb(6, 153, 146);
+    cursor: pointer;
+}
+
+.fale{
+    position: absolute;
+    width: 100%;
+    background-color: #0a1725;
+    color:white;
+    height: 25%;
+    line-height: 1;
+    margin-top: 72%;
+    opacity: 100px;
+}
+.logo_rede_social{
+    float: right;
+    width: 4%;
+    margin-top: 3%;
+    padding-right: 1%;
+    margin-right: 2%;
+    
+}
+.txt_fale{
+    margin-left: 2%;
+    line-height: 1.9;
+}
+
+
+ul{
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    box-sizing: border-box;
+}
