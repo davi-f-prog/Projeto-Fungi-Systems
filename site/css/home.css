@@ -72,6 +72,10 @@ body{
     font-family: arial;
     color: white;
 }
+.nav-link:hover {
+	text-decoration: underline; 
+	color: #1a3c61;
+	}
 .btn{
     width: 90px;
     color:black;

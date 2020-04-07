@@ -37,6 +37,7 @@ body, html {
     box-sizing: border-box;
     width: 40%;
     color: white;
+    text-decoration: none;
 }
 .logo{
     width: 18%;
@@ -77,6 +78,10 @@ body, html {
     font-family: arial;
     color: white;
 }
+.nav-link:hover {
+	text-decoration: underline; 
+	color: #1a3c61;
+	}
 .btn_ent{
     background-color: yellowgreen;
     border: 3px solid black;
