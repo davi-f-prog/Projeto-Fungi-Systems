@@ -20,104 +20,67 @@ body{
     background-color: rgb(0, 0, 0);
     width: 100%;
 }
-.navbar{
+.block1{
+    background-image: url("dois-cogumelos.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100%;
+}
+#navbar{
     background-color: #0a1725;
-    border-bottom: 7px solid #1a3c61;
-    width: 100%;
-    color:white;
+    position: absolute;
+    margin: 2%;
+    width: auto;
+    border-radius: 5px;
 }
-.container{
-    margin:0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
+#brand_logo{
+    float:left;
+    margin:1%;
+    width: 10%;
+    height:15%;
 }
-.navbar-brand{
-    text-decoration: none;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    width: 40%;
-    color: white;
-}
-.logo{
-    width: 18%;
+#nav_titulo{
     float: left;
+    /* margin:; */
+    margin-top: 3%;
+    font-size:xx-large;
+    font-family: verdana;
+    color: skyblue;
+}
+#navbar_links{
+    float: left;
+    margin-top:3.9%;
+    margin-left:5%;
+    font-size: 17px;
+    font-family: verdana;
+    width:40%;
+}
+.nav_link{
     margin-left: 5%;
-}
-.txt_logo{
-    margin-top: 4%; 
-    margin-left: 2%;
-    font-size: 200%;
-    font-family: arial;
-    color: white;
-}
-.collapse{  
-    width: 18%;
-    padding:0;
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-right: 10%;
-    box-sizing: border-box;
-    flex-basis: auto;
-    display: flex!important;
-}
-.nav-link{
-    list-style: none;
-    text-align: -webkit-match-parent;
-    padding-right: .5rem;
-    padding-left: .5rem;
-    display: block;
-    padding: .5rem 1rem;
-    box-sizing: border-box;
+    color: #f2f2f2;
     text-decoration: none;
-    font-family: arial;
-    color: white;
 }
-.nav-link:hover {
+.nav_link:hover{
 	text-decoration: underline; 
 	color: #459eff;
 }
-.btn{
-    width: 90px;
-    color:black;
-    border-radius: 10%;
-    text-decoration: none;
+#navbar_buttons{
+    margin-top: 3.7%;
 }
-.div_bnts{
-    width: 180px;
-    color: white;
-    float: right;
+.nav_button:hover{
+    background-color: aqua;
 }
-.btn_ent{
-    background-color: yellowgreen;
-    border: 3px solid black;
-    height: 40px;
-    margin-right: 1%;
-    font-size: 105%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 2px; 
-}
-.btn_cad{
-    margin-left: 15%;
-    border: 3px solid black;
-    background-color: rgb(6, 153, 146);
-    height: 40px;
-    margin-bottom: 0%;
-    font-size: 105%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 1%;
+.nav_button{
+    margin-left:10px;
+    /* margin-right:2%; */
+    border-radius:5px;
+    border:none;
+    width:9%;
+    height:30px;
+    background-color: #459eff;
+    font-size:17px;
 }
 .estatisticas {
     margin-top:5%;
@@ -161,24 +124,40 @@ body{
 }
 .apresentacao{
     width:100%;
-    background-color: rgb(6, 153, 146);
+    background-color: #1a3c61;
 }
-#block4{
+#block4a{
     margin-top:10%;
     float:left;
-    font-size: 500%;
+    font-size: 350%;
     font-family: verdana;
     color:white; 
-    background-color: rgb(6, 153, 146);   
+    background-color: #1a3c61;
+    width:50%;   
+}
+#block4b{
+    margin-top:10%;
+    float:left;
+    font-family: verdana;
+    color:white; 
+    width:50%; 
+    height:100%;
+    background-color: #0a1725;
+}
+.logo_block{
+    margin-left:8%;    
+    width:80%;
+    height:30%;
 }
 #caixa_simulador{
     margin-top:75%;
     margin-bottom:10%;
     width:100%;
-    height:110%;
+    height:100%;
     background-color:black;
 }
 .titulo_simulador{
+    margin-top:15%;
     margin-left:15%;
     font-family: verdana;
     font-size: 500%;
@@ -221,6 +200,9 @@ body{
     height:70px;
     background-color: #459eff;
 }
+.btn_calc:hover{
+    background-color: aqua;
+}
 .resultado{
     margin-top:0;
     float: right;
@@ -235,18 +217,16 @@ body{
     background-color: #0a1725;
     color:white;
     height: 17%;
-    line-height: 1;
 }
 .logo_rede_social{
     float: right;
     width: 2.5%;
     margin-top: 3%;
-    padding-right: 0%;
     margin-right: 2%;
 }
 .txt_fale_conosco{
     margin-right: -100px;
-    margin-top: 4%;
+    margin-top: 3.5%;
     margin-left: 10%;
     line-height: 1.9;
     display: inline-block;   
@@ -256,7 +236,7 @@ body{
 }
 .copyright{
     display: inline-block;
-    margin-left:0;
+    margin-left:0.5px;
     font-size: 12px;
     font-family: verdana;
 }
