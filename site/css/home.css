@@ -38,20 +38,20 @@ body{
 #brand_logo{
     float:left;
     margin:1%;
-    width: 10%;
+    width: 7%;
     height:15%;
 }
 #nav_titulo{
     float: left;
     /* margin:; */
-    margin-top: 3%;
+    margin-top: 2.1%;
     font-size:xx-large;
     font-family: verdana;
     color: skyblue;
 }
 #navbar_links{
     float: left;
-    margin-top:3.9%;
+    margin-top:2.9%;
     margin-left:5%;
     font-size: 17px;
     font-family: verdana;
@@ -63,14 +63,15 @@ body{
     text-decoration: none;
 }
 .nav_link:hover{
-	text-decoration: underline; 
 	color: #459eff;
 }
 #navbar_buttons{
-    margin-top: 3.7%;
+    margin-top: 2.7%;
 }
 .nav_button:hover{
-    background-color: aqua;
+    text-decoration: none;
+    background-color: #4682B4;
+    color: black;
 }
 .nav_button{
     margin-left:10px;
@@ -78,7 +79,7 @@ body{
     border:none;
     width:9%;
     height:30px;
-    background-color: #459eff;
+    background-color: transparent;
     font-size:17px;
     text-decoration: none;
 }
@@ -132,17 +133,17 @@ body{
     font-size: 350%;
     font-family: verdana;
     color:white; 
-    background-color: #1a3c61;
-    width:50%;   
+    width:67.3%;   
+    background-color: #0e5d84;
 }
 #block4b{
     margin-top:10%;
     float:left;
     font-family: verdana;
     color:white; 
-    width:50%; 
-    height:100%;
-    background-color: #0a1725;
+    width:32.7%; 
+    height:60%;
+    background-color:#0e5d84;
 }
 .logo_block{
     margin-left:8%;    
@@ -150,7 +151,7 @@ body{
     height:30%;
 }
 #caixa_simulador{
-    margin-top:75%;
+    margin-top:60%;
     margin-bottom:15%;
     width:100%;
     height:100%;
@@ -198,10 +199,12 @@ body{
     border: none;
     width:70%;
     height:70px;
-    background-color: #459eff;
+    background-color: #1a3c61;
+    color: white;
 }
 .btn_calc:hover{
-    background-color: aqua;
+    background-color:#4682B4;
+    color: black;
 }
 .resultado{
     margin-top:0;
