@@ -209,6 +209,27 @@ body, html {
     height: 60%;
     margin-top: 14%;
 }
+.animacao_icone {
+    background-color: #9c9ea0;
+    width: 100%;
+    height: 60%;
+    margin-top: 14%;
+}
+.animacao_icone img{
+    animation-name: icones;
+    animation-duration: 2s;
+}
+@keyframes icones{
+    0%{
+        margin-top: 50%;
+        opacity:0;
+    }
+    100%{
+        margin-top: 2%;
+     
+        opacity:1;
+    }
+}
 .icone1{
     width: 7%;
     margin-left: 23%;
@@ -259,6 +280,27 @@ body, html {
     margin-top: 7%;
     border-top-color: #0a1725;
     
+}
+.anima_sobre_mim{
+    background-color: #090a0a;
+    width: 100%;
+    height: 110%;
+    margin-top: 7%;
+    border-top-color: #0a1725;
+}
+.anima_sobre_mim img{
+    animation-name: imagens;
+    animation-duration: 2s;
+}
+@keyframes imagens{
+    0%{
+        margin-left:-500px;
+        opacity:0;
+    }
+    100%{
+        margin-left:5px;
+        opacity:1;
+    }
 }
 .foto_davi{
     width: 10%;
