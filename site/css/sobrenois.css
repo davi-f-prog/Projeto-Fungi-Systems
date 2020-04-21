@@ -288,7 +288,7 @@ body, html {
     margin-top: 7%;
     border-top-color: #0a1725;
 }
-.anima_sobre_mim img{
+.anima_sobre_mim .foto_davi{
     animation-name: imagens;
     animation-duration: 2s;
 }
@@ -376,7 +376,7 @@ body, html {
     height: 100%;
 }
 .caixa_duvida{
-    width: 35%;
+    width: 30%;
     height: 87%;
     border-radius: 6%;
     border: 7px solid  #1a3c61;
@@ -447,4 +447,3 @@ body, html {
     font-size: 12px;
     font-family: verdana;
 }
-
