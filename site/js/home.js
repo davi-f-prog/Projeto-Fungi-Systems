@@ -17,5 +17,5 @@ function calcular_valor(){
     var IT = I1 * 40;
     // O 40 é porque o valor do Sensor DHT11 + sensor LDR + Resistor 10k + Placa Arduino Uno + Jumpers + Fonte de alimentação=$40
 
-    resultado.innerHTML = `Em sua última colheita você deixou de  lucrar <b>R$${VT.toFixed(2)}</b> com perdas. Com nosso sistema você lucraria na próxima colheita <b>R$${LT.toFixed(2)}</b>. <br> <br> Seu investimento será a partir de: <b>R$${IT.toFixed(2)}</b>.`;
+    resultado.innerHTML = `Em sua última colheita você deixou de  lucrar <b>R$${VT.toFixed(2)}</b> com perdas. Com nosso sistema você lucraria na próxima colheita <b>R$${LT.toFixed(2)}</b> <br> <br> Seu investimento será a partir de: <b>R$${IT.toFixed(2)}</b>`;
 }
