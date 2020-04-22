@@ -6,22 +6,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cadastro</title>
     </head>
-    <body style="margin: 0; background-color: black;">
+    <body style=" background-color: black;">
         <div class="block1">
             <div id="navbar">
-              <img id="brand_logo" src="./imagens/logo.png">
-              <b id="nav_titulo">Fungi Systems</b>
-              <div id="navbar_links">
+              <img id="brand_logo" onclick="document.location = 'home.html'" src="./imagens/logo.png">
+              <b id="nav_titulo" onclick="document.location = 'home.html'">Fungi Systems</b>
+              <!--<div id="navbar_links">
                 <a class="nav_link" href="home.html">Home</a>
-                <a class="nav_link" href="home.html#caixa_simulador">Simulador Financeiro</a>
+                <a class="nav_link" href="home.html#caixa_simulador">Simulador</a>
                 <a class="nav_link" href="sobrenos.html">Sobre nós</a>
-              </div>
+              </div>-->
               <div id="navbar_buttons">
-                <button class="nav_button" type="submit"><a style="color: white; href="login.html">Login</a></button> 
-                <button class="nav_button" type="submit"><a style="color: white; href="Cadastro.html">Cadastrar-se</a></button> 
+                <!--<button class="nav_button" onclick="document.location = 'home.html'"><b>Home</b></button> -->
+                <button class="nav_button" onclick="document.location = 'home.html#caixa_simulador'"><b>Simulador</b></button>
+                <button class="nav_button" onclick="document.location = 'sobrenos.html'"><b>Sobre nós</b></button>
+                <button class="nav_button" onclick="document.location = 'login.html'"><b>Login</b></a></button> 
+                <button class="nav_button" onclick="document.location = 'Cadastro.html'"><b>Cadastrar-se</b></a></button> 
               </div>
             </div>
           </div>
+          <center>
         <div id="caixa_cadastro">
             <img src="./imagens/Logo.png" class="logo_form">
             <div id="cadastro_form">
@@ -41,5 +45,6 @@
                 <a class ="link-login" href ="login.html">Já tem uma conta? Clique aqui</a>
             </div>
         </div>
+        </center>
     </body>
 </html>
