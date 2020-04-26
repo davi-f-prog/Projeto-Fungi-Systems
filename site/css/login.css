@@ -12,7 +12,7 @@ body, html {
         opacity: 0%;
     }
     100%{
-        margin-top: 15%;
+        margin-top: 13%;
         opacity: 0.9;
     }
 }
@@ -26,20 +26,20 @@ body, html {
 #brand_logo{
     float:left;
     margin:1%;
-    width: 10%;
+    width: 7%;
     height:15%;
 }
 #nav_titulo{
     float: left;
     /* margin:; */
-    margin-top: 3%;
+    margin-top: 2.1%;
     font-size:xx-large;
     font-family: verdana;
     color: skyblue;
 }
 #navbar_links{
     float: left;
-    margin-top:3.9%;
+    margin-top:2.9%;
     margin-left:5%;
     font-size: 17px;
     font-family: verdana;
@@ -54,26 +54,29 @@ body, html {
 	color: #459eff;
 }
 #navbar_buttons{
-    margin-top: 3.7%;
+    margin-top: 2.6%;
 }
 .nav_button:hover{
-    background-color:#4682B4;
+    text-decoration: none;
+    background-color: #4682B4;
+    color: black;
 }
 .nav_button{
     margin-left:10px;
-    /* margin-right:2%; */
     border-radius:5px;
     border:none;
     width:9%;
     height:30px;
     background-color: transparent;
     font-size:17px;
+    text-decoration: none;
 }
 .div_corpo{
     margin: 30%;
     height: 70%;
     width: 36%;
-    margin-top: 15%;
+    margin-top: 13%;
+    margin-left: 32%;
     background-color: #0a1725;
     animation-name: anm_corpo;
     animation-duration: 2s;
@@ -85,7 +88,7 @@ body, html {
     border-radius: 10%;
 }
 .div_conteudo{
-    margin:13%;
+    margin:14%;
     line-break: auto;
     color: rgb(6, 153, 146);
     text-shadow: 1px 1px black;
