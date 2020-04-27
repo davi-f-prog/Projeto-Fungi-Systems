@@ -18,19 +18,16 @@ TelefoneCelular char(11)
 
 
 create table LoginUsuario(
-idUsuario int,
+idUsuario int auto_increment,
 loginn varchar(50),
 senha varchar(50),
 FKCultivador int,
 foreign key(FKCultivador) references Cultivador(idCultivador),
 primary key(idUsuario,FKCultivador)
-);
-
-select *from Cultivador;
-select *from LoginUsuario;
+) auto_increment = 10500;
 
 create table Estufa(
-idEstufa int primary key, 
+idEstufa int primary key auto_increment, 
 localizacao varchar(50),
 TotalCogumelo int,
 check(TotalCogumelo > 0),
@@ -38,8 +35,6 @@ FKCultivador int,
 foreign key(FKCultivador)  references Cultivador(idCultivador)
 )auto_increment = 1000;
 
-select *from Estufa;
-drop table Estufa;
 
 create table Sensores(
 Umidade decimal(4,2),
@@ -51,3 +46,22 @@ FKEstufa int,
 foreign key(FKEstufa) references Estufa(idEstufa),
 primary key(dataHora,FKEstufa)
 );
+select *from Cultivador;
+select *from loginusuario;
+select *from estufa;
+select *from sensores;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
