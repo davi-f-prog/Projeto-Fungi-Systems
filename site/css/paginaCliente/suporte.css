@@ -1,0 +1,22 @@
+.suporte{
+    display: none;
+    background-color: blue;
+    height: 1000px;
+
+}
+
+.txt_ajuda{
+    font-size: 280%;
+    margin-left: 10%;
+}
+
+.div_msg_suporte_site{
+    display: none;
+}
+
+.div_msg_suporte_sensores{
+    display: none;
+}
+.combo_ajuda{
+   font-size: 120%;
+}

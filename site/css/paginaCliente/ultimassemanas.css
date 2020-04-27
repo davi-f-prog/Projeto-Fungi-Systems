@@ -1,0 +1,10 @@
+.pag_semanas{
+    padding-left: 30px;
+    padding-top: 10px;
+    background-color: green;
+    height: 1000px;
+}
+
+.titulo_semanas{
+    font-size: 280%;
+}

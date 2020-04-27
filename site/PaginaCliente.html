@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/paginaCliente/clt.css">
+    <link rel="stylesheet" href="css/paginaCliente/sensores.css">
+    <link rel="stylesheet" href="css/paginaCliente/ultimassemanas.css">
+    <link rel="stylesheet" href="css/paginaCliente/suporte.css">
+    <title>Pagina do usuario</title>
+    <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
+	<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+	<style>
+	canvas{
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	</style>
+</head>
+<body>
+    <div class="div_corpo">
+        <nav class="navegacao">
+            <br>
+            <img src="./imagens/Logo.png" class="logo"><br> <br> <br>
+            <ul class="ul_btns">
+                <br> <br> <br>
+               <li class="btn_nav"><a onclick="mostrasemanas()">Ultimas Semanas</a></li>
+               <br> <br> <br>
+               <li class="btn_nav"><a onclick="mostrasensores()" >Sensores</a></li>
+               <br> 
+               <li class="btn_nav" ><a onclick="mostrasuporte()">Suporte</a></li>
+               <br> 
+               <li class="btn_nav"><a href="home.html" class="btn_sair">Sair</a></li>
+            </ul>
+        </nav>
+        <div class="div_conteudo">
+            <div class="pag_semanas" id="id_semanas">
+                <span class="titulo_semanas">Ultimas Semanas</span>
+            </div>
+            <div class="pag_sensores" id="id_sensores">
+             
+                <span>Sensores</span>
+
+                <div style="width:75%;">
+                    <canvas id="canvas"></canvas>
+                </div>
+                <br>
+                <br>
+                <button id="randomizeData">Randomize Data</button>
+                <button id="addDataset">Add Dataset</button>
+                <button id="removeDataset">Remove Dataset</button>
+                <button id="addData">Add Data</button>
+                <button id="removeData">Remove Data</button>
+                <script>
+                    var MONTHS = ['00:10:00', '00:20:00', '00:30:00', '00:40:00', '00:50:00', '01:00:00', '01:10:00', '01:20:00', '00:30:00', '00:40:00', '01:50:00', '02:00:00'];
+                    var config = {
+                        type: 'line',
+                        data: {
+                            labels: ['00:10:00', '00:20:00', '00:30:00', '00:40:00', '00:50:00', '01:00:00', '01:10:00'],
+                            datasets: [{
+                                label: 'Temperatura',
+                                backgroundColor: window.chartColors.blue,
+                                borderColor: window.chartColors.yellow,
+                                data: [
+                                    randomScalingFactor(),
+                                    randomScalingFactor(),
+                                    randomScalingFactor(),
+                                    randomScalingFactor(),
+                                    randomScalingFactor(),
+                                    randomScalingFactor(),
+                                    randomScalingFactor()
+                                ],
+                                fill: false,
+                            }, {
+                                label: 'Umidade',
+                                fill: false,
+                                backgroundColor: window.chartColors.blue,
+                                borderColor: window.chartColors.blue,
+                                data: [
+                                    randomScalingFactor(),
+                                    randomScalingFactor(),
+                                    randomScalingFactor(),
+                                    randomScalingFactor(),
+                                    randomScalingFactor(),
+                                    randomScalingFactor(),
+                                    randomScalingFactor()
+                                ],
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'Meu gráfico loko'
+                            },
+                            tooltips: {
+                                mode: 'index',
+                                intersect: false,
+                            },
+                            hover: {
+                                mode: 'nearest',
+                                intersect: true
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Instante'
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'ºC'
+                                    }
+                                }]
+                            }
+                        }
+                    };
+            
+                    window.onload = function() {
+                        var ctx = document.getElementById('canvas').getContext('2d');
+                        window.myLine = new Chart(ctx, config);
+                    };
+            
+                    document.getElementById('randomizeData').addEventListener('click', function() {
+                        config.data.datasets.forEach(function(dataset) {
+                            dataset.data = dataset.data.map(function() {
+                                return randomScalingFactor();
+                            });
+            
+                        });
+            
+                        window.myLine.update();
+                    });
+            
+                    var colorNames = Object.keys(window.chartColors);
+                    document.getElementById('addDataset').addEventListener('click', function() {
+                        var colorName = colorNames[config.data.datasets.length % colorNames.length];
+                        var newColor = window.chartColors[colorName];
+                        var newDataset = {
+                            label: 'Dataset ' + config.data.datasets.length,
+                            backgroundColor: newColor,
+                            borderColor: newColor,
+                            data: [],
+                            fill: false
+                        };
+            
+                        for (var index = 0; index < config.data.labels.length; ++index) {
+                            newDataset.data.push(randomScalingFactor());
+                        }
+            
+                        config.data.datasets.push(newDataset);
+                        window.myLine.update();
+                    });
+            
+                    document.getElementById('addData').addEventListener('click', function() {
+                        if (config.data.datasets.length > 0) {
+                            var month = MONTHS[config.data.labels.length % MONTHS.length];
+                            config.data.labels.push(month);
+            
+                            config.data.datasets.forEach(function(dataset) {
+                                dataset.data.push(randomScalingFactor());
+                            });
+            
+                            window.myLine.update();
+                        }
+                    });
+            
+                    document.getElementById('removeDataset').addEventListener('click', function() {
+                        config.data.datasets.splice(0, 1);
+                        window.myLine.update();
+                    });
+            
+                    document.getElementById('removeData').addEventListener('click', function() {
+                        config.data.labels.splice(-1, 1); // remove the label first
+            
+                        config.data.datasets.forEach(function(dataset) {
+                            dataset.data.pop();
+                        });
+            
+                        window.myLine.update();
+                    });
+                </script>
+                 
+         
+            </div>
+            
+                <div class="suporte" id="assistencia">
+                    <span class="txt_ajuda">Precisa de Ajuda?</span><br>
+                    <select id="problema" class="combo_ajuda" onchange="mostra_sl()">
+                        <option value="selecione">Selecione uma opção</option>
+                        <option value="site">Problemas com o site</option>
+                        <option value="sensor">Problemas com o sensor</option>
+                    </select><br><br>
+                    <div class="div_msg_suporte_site" id="div_solução_site">
+                        Caso o problema esteja no seu perfil lige para(11)****-**** ou envie 
+                         um email para fungiSystems@gmail.com</div>
+                    <div class="div_msg_suporte_sensores" id="div_solução_sensores">
+                        Caso o problema nos sensores contate a nossa equipe 
+                        especializada enviando um email para  fungiSystems@gmail.com e seu
+                        questionamento sera respondido dentro de 24horas <br>
+                         ou ligue para (11)****-****</div>
+                </div>
+    </div>
+</body>
+</html>
+
+<script>
+
+    function mostrasemanas(){
+        id_semanas.style.display = 'block';
+        id_sensores.style.display = 'none';
+        assistencia.style.display = 'none';
+    }
+    function mostrasensores(){
+        id_semanas.style.display = 'none';
+        id_sensores.style.display = 'block';
+        assistencia.style.display = 'none';
+    }
+    function mostrasuporte(){
+        id_semanas.style.display = 'none';
+        id_sensores.style.display = 'none';
+        assistencia.style.display = 'block';
+    }
+    function mostra_sl(){
+        if (problema.value == 'site'){
+            div_solução_site.style.display = 'block';
+            div_solução_sensores.style.display = 'none';
+        }
+
+        else if(problema.value == 'sensor'){
+        div_solução_site.style.display = 'none';
+        div_solução_sensores.style.display = 'block';
+        }
+        
+        else{
+            div_solução_site.style.display = 'none';
+        div_solução_sensores.style.display = 'none';
+        }
+    }
+
+</script>

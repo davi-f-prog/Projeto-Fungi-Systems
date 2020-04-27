@@ -1,0 +1,13 @@
+.pag_sensores{
+    display: none;
+    background-color: white;
+    height: 1000px;
+    padding-left: 10px;
+}
+
+.pag_sensores span{
+    margin-block-start: 0;
+    padding-top: 20px;
+    font-size: 250%;
+}
+
