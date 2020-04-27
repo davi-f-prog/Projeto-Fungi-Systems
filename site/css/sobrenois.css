@@ -359,14 +359,16 @@ body, html {
     border-radius: 17%;
 }
 .caixa_atendimento{
+    margin-top: 15px;
     width: 100%;
     height: 100%;
+    background: #92d7e6;
   
 }
 .img_atendimento{
-    width: 100%;
+    width: auto;
     height: 100%;
-    margin-top: 10px;
+    margin-left: 38%;
 }
 .caixa_duvida{
     width: 30%;
@@ -385,8 +387,8 @@ body, html {
 
 .ipt_nome {
     
-      width: 350px;
-      height: 30px;
+    width: 350px;
+    height: 30px;
 
 }
 .ipt_email {
