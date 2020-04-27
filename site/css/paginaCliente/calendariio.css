@@ -1,0 +1,204 @@
+ul {list-style-type: none;}
+
+/* Month header */
+.month {
+    margin-top: 3%;
+  padding: 50px 25px;
+  width: 30%;
+  height: 3%;
+  background: #1abc9c;
+  text-align: center;
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+/* Next button */
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+    width: 34.2%;
+  margin: 0;
+  padding: 10px 1px 1px 1px;
+  background-color:#ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.3%;
+  color: #666;
+  text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+  padding: 5px 0;
+  background: #eee;
+  margin: 0;
+  width: 34.3%;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 10%;
+  text-align: center;
+  font-size:12px;
+  color: #777;
+}
+
+#diaprimeiro{
+    padding-left: 290px;
+}
+
+#diadois{
+    padding-left: 10px;
+}
+
+#diatres{
+    padding-left: 5px;
+}
+
+#diaquatro{
+    padding-left: 15px;
+}
+
+#diacinco{
+    padding-left: 15px;
+}
+
+#diaseis{
+    padding-left: 13px;
+}
+
+#diasete{
+    padding-left: 14px;
+}
+
+#diaoito{
+    padding-left: 12px;
+}
+
+#dianove{
+    padding-left: 11px;
+}
+
+#diadez{
+    padding-left: 5px;
+}
+
+#diaonze{
+    padding-left: 17px;
+}
+
+#diadoze{
+    padding-left: 13px;
+}
+
+#diatreze{
+    padding-left: 12px;
+}
+
+#diaquatorze{
+    padding-left: 13px;
+}
+
+#diaquinze{
+    padding-left: 15px;
+}
+
+#diadezesseis{
+    padding-left: 10px;
+}
+
+#diadezessete{
+    padding-left: 5px;
+}
+
+#diadezoito{
+    padding-left: 16px;
+}
+
+#diadezenove{
+    padding-left: 14px;
+}
+
+#diavinte{
+    padding-left: 12px;
+}
+
+#diavinteum{
+    padding-left: 16px;
+}
+
+#diavintedois{
+    padding-left: 12px;
+}
+
+#diavintetres{
+    padding-left: 10px;
+}
+
+#diavintequatro{
+    padding-left: 5px;
+}
+
+#diavintecinco{
+    padding-left: 16px;
+}
+
+#diavinteseis{
+    padding-left: 14px;
+}
+
+#diavintesete{
+    padding-left: 12px;
+}
+
+#diavinteoito{
+    padding-left: 16px;
+}
+
+#diavintenove{
+    padding-left: 12px;
+}
+
+#diatrinta{
+    padding-left: 10px;
+}
+
+#diatrintaum{
+    padding-left: 5px;
+}
+
+#diasplantio{
+    font-size: 150%;
+    letter-spacing: 1px;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+  padding: 3px;
+  background: #1abc9c;
+  color: white !important
+}

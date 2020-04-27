@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,20 @@
     <link rel="stylesheet" href="css/paginaCliente/sensores.css">
     <link rel="stylesheet" href="css/paginaCliente/ultimassemanas.css">
     <link rel="stylesheet" href="css/paginaCliente/suporte.css">
+    <link rel="stylesheet" href="css/paginaCliente/calendariio.css">
     <title>Pagina do usuario</title>
-    <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
-	<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
-	<style>
-	canvas{
-		-moz-user-select: none;
-		-webkit-user-select: none;
-		-ms-user-select: none;
-	}
-	</style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
 </head>
+
 <body>
     <div class="div_corpo">
         <nav class="navegacao">
@@ -25,221 +29,241 @@
             <img src="./imagens/Logo.png" class="logo"><br> <br> <br>
             <ul class="ul_btns">
                 <br> <br> <br>
-               <li class="btn_nav"><a onclick="mostrasemanas()">Ultimas Semanas</a></li>
-               <br> <br> <br>
-               <li class="btn_nav"><a onclick="mostrasensores()" >Sensores</a></li>
-               <br> 
-               <li class="btn_nav" ><a onclick="mostrasuporte()">Suporte</a></li>
-               <br> 
-               <li class="btn_nav"><a href="home.html" class="btn_sair">Sair</a></li>
+                <li class="btn_nav"><a onclick="mostrasemanas()">Ultimas Semanas</a></li>
+                <br> <br> <br>
+                <li class="btn_nav"><a onclick="mostrasensores()">Sensores</a></li>
+                <br>
+                <li class="btn_nav"><a onclick="mostrasuporte()">Suporte</a></li>
+                <br>
+                <li class="btn_nav"><a href="home.html" class="btn_sair">Sair</a></li>
             </ul>
         </nav>
         <div class="div_conteudo">
             <div class="pag_semanas" id="id_semanas">
                 <span class="titulo_semanas">Ultimas Semanas</span>
+                <div class="month">
+                    <ul>
+                        <li class="prev">&#10094;</li>
+                        <li class="next">&#10095;</li>
+                        <li>MAIO<br><span style="font-size:18px">2020</span></li>
+                    </ul>
+                </div>
+
+                <div class="calendario">
+                    <ul class="weekdays">
+                        <li>Dom</li>
+                        <li>Seg</li>
+                        <li>Ter</li>
+                        <li>Qua</li>
+                        <li>Qui</li>
+                        <li>Sex</li>
+                        <li>Sab</li>
+                    </ul>
+                    <ul class="days">
+                        <li id="diaprimeiro">1</li>
+                        <li id="diadois">2</li>
+                        <br>
+                        <li id="diatres">3</li>
+                        <li id="diaquatro">4</li>
+                        <li id="diacinco"><span class="active">5</span></li>
+                        <li id="diaseis">6</li>
+                        <li id="diasete">7</li>
+                        <li id="diaoito">8</li>
+                        <li id="dianove">9</li>
+                        <br>
+                        <li id="diadez">10</li>
+                        <li id="diaonze">11</li>
+                        <li id="diadoze">12</li>
+                        <li id="diatreze">13</li>
+                        <li id="diaquatorze">14</li>
+                        <li id="diaquinze">15</li>
+                        <li id="diadezesseis">16</li>
+                        <br>
+                        <li id="diadezessete">17</li>
+                        <li id="diadezoito">18</li>
+                        <li id="diadezenove">19</li>
+                        <li id="diavinte">20</li>
+                        <li id="diavinteum">21</li>
+                        <li id="diavintedois">22</li>
+                        <li id="diavintetres">23</li>
+                        <br>
+                        <li id="diavintequatro">24</li>
+                        <li id="diavintecinco">25</li>
+                        <li id="diavinteseis">26</li>
+                        <li id="diavintesete">27</li>
+                        <li id="diavinteoito">28</li>
+                        <li id="diavintenove">29</li>
+                        <li id="diatrinta">30</li>
+                        <br>
+                        <li id="diatrintaum">31</li>
+                    </ul>
+                </div>
+                <br>
+                <div id="diasplantio">
+                    Dia do último plantio: <b>25/04/2020</b>;
+                    <br>
+                    Dia atual: <b>05/05/2020</b>;
+                    <br>
+                    Dia de colheita: <b>15/06/2020</b>;
+                </div>
+                <div>
+                    Total de cogumelos: <b>200</b>;
+                    <img src="./imagens/graficocliente.png" alt="">
+                    Em preparo: <b>180</b>; Prontos: <b>20</b>;
+
+                </div>
             </div>
             <div class="pag_sensores" id="id_sensores">
-             
-                <span>Sensores</span>
+
+                <span id="sensores">Sensores</span>
 
                 <div style="width:75%;">
-                    <canvas id="canvas"></canvas>
+                    <section>
+                        <h2>Média: <label id='average'>0.00</label></h2>
+                        <h2>Média Hora: <label id='averageHour'>0.00</label></h2>
+                    </section>
+                    <section style="width:100%">
+                        <canvas id="chart"></canvas>
+                        <section>
+                            <script>
+
+                                var context = document.getElementById("chart").getContext("2d");
+                                context.canvas.width = 1000;
+                                context.canvas.height = 300;
+
+                                var configuration = {
+                                    type: 'line',
+                                    data: {
+                                        datasets: [{
+                                            label: "Temperatura x Hora",
+                                            type: 'line',
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            xAxes: [{
+                                                //type: 'value',
+                                                distribution: 'series',
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }],
+                                            yAxes: [{
+                                                scaleLabel: {
+                                                    display: true,
+                                                    labelString: 'Temperatura'
+                                                },
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        },
+                                        animation: {
+                                            duration: 0
+                                        }
+                                    }
+                                };
+
+                                var chart = new Chart(context, configuration);
+                                this.lastIndexTemp = 0;
+                                this.time = 0;
+
+                                function get_data() {
+
+                                    var http = new XMLHttpRequest();
+                                    http.open('GET', 'http://localhost:3000/api', false);
+                                    http.send(null);
+
+                                    var obj = JSON.parse(http.responseText);
+                                    console.log(obj)
+                                    if (obj.data.length == 0) {
+                                        return;
+                                    }
+
+                                    var _lastIndexTemp = this.lastIndexTemp;
+                                    this.lastIndexTemp = obj.data.length;
+                                    listTemp = obj.data.slice(_lastIndexTemp);
+
+                                    listTemp.forEach(data => {
+                                        //Máximo de 60 itens exibidos no gráfico
+                                        if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
+                                            chart.data.labels.shift();
+                                            chart.data.datasets[0].data.shift();
+                                        }
+
+                                        chart.data.labels.push(this.time++);
+                                        chart.data.datasets[0].data.push(parseFloat(data));
+                                        chart.update();
+                                    });
+
+                                    document.getElementById('average').textContent = obj.average;
+                                    document.getElementById('averageHour').textContent = obj.averageHour;
+                                }
+
+                                get_data();
+
+                                setInterval(() => {
+                                    get_data();
+                                }, 1000);
+
+                            </script>
+                        </section>
+                    </section>
                 </div>
-                <br>
-                <br>
-                <button id="randomizeData">Randomize Data</button>
-                <button id="addDataset">Add Dataset</button>
-                <button id="removeDataset">Remove Dataset</button>
-                <button id="addData">Add Data</button>
-                <button id="removeData">Remove Data</button>
-                <script>
-                    var MONTHS = ['00:10:00', '00:20:00', '00:30:00', '00:40:00', '00:50:00', '01:00:00', '01:10:00', '01:20:00', '00:30:00', '00:40:00', '01:50:00', '02:00:00'];
-                    var config = {
-                        type: 'line',
-                        data: {
-                            labels: ['00:10:00', '00:20:00', '00:30:00', '00:40:00', '00:50:00', '01:00:00', '01:10:00'],
-                            datasets: [{
-                                label: 'Temperatura',
-                                backgroundColor: window.chartColors.blue,
-                                borderColor: window.chartColors.yellow,
-                                data: [
-                                    randomScalingFactor(),
-                                    randomScalingFactor(),
-                                    randomScalingFactor(),
-                                    randomScalingFactor(),
-                                    randomScalingFactor(),
-                                    randomScalingFactor(),
-                                    randomScalingFactor()
-                                ],
-                                fill: false,
-                            }, {
-                                label: 'Umidade',
-                                fill: false,
-                                backgroundColor: window.chartColors.blue,
-                                borderColor: window.chartColors.blue,
-                                data: [
-                                    randomScalingFactor(),
-                                    randomScalingFactor(),
-                                    randomScalingFactor(),
-                                    randomScalingFactor(),
-                                    randomScalingFactor(),
-                                    randomScalingFactor(),
-                                    randomScalingFactor()
-                                ],
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            title: {
-                                display: true,
-                                text: 'Meu gráfico loko'
-                            },
-                            tooltips: {
-                                mode: 'index',
-                                intersect: false,
-                            },
-                            hover: {
-                                mode: 'nearest',
-                                intersect: true
-                            },
-                            scales: {
-                                xAxes: [{
-                                    display: true,
-                                    scaleLabel: {
-                                        display: true,
-                                        labelString: 'Instante'
-                                    }
-                                }],
-                                yAxes: [{
-                                    display: true,
-                                    scaleLabel: {
-                                        display: true,
-                                        labelString: 'ºC'
-                                    }
-                                }]
-                            }
-                        }
-                    };
-            
-                    window.onload = function() {
-                        var ctx = document.getElementById('canvas').getContext('2d');
-                        window.myLine = new Chart(ctx, config);
-                    };
-            
-                    document.getElementById('randomizeData').addEventListener('click', function() {
-                        config.data.datasets.forEach(function(dataset) {
-                            dataset.data = dataset.data.map(function() {
-                                return randomScalingFactor();
-                            });
-            
-                        });
-            
-                        window.myLine.update();
-                    });
-            
-                    var colorNames = Object.keys(window.chartColors);
-                    document.getElementById('addDataset').addEventListener('click', function() {
-                        var colorName = colorNames[config.data.datasets.length % colorNames.length];
-                        var newColor = window.chartColors[colorName];
-                        var newDataset = {
-                            label: 'Dataset ' + config.data.datasets.length,
-                            backgroundColor: newColor,
-                            borderColor: newColor,
-                            data: [],
-                            fill: false
-                        };
-            
-                        for (var index = 0; index < config.data.labels.length; ++index) {
-                            newDataset.data.push(randomScalingFactor());
-                        }
-            
-                        config.data.datasets.push(newDataset);
-                        window.myLine.update();
-                    });
-            
-                    document.getElementById('addData').addEventListener('click', function() {
-                        if (config.data.datasets.length > 0) {
-                            var month = MONTHS[config.data.labels.length % MONTHS.length];
-                            config.data.labels.push(month);
-            
-                            config.data.datasets.forEach(function(dataset) {
-                                dataset.data.push(randomScalingFactor());
-                            });
-            
-                            window.myLine.update();
-                        }
-                    });
-            
-                    document.getElementById('removeDataset').addEventListener('click', function() {
-                        config.data.datasets.splice(0, 1);
-                        window.myLine.update();
-                    });
-            
-                    document.getElementById('removeData').addEventListener('click', function() {
-                        config.data.labels.splice(-1, 1); // remove the label first
-            
-                        config.data.datasets.forEach(function(dataset) {
-                            dataset.data.pop();
-                        });
-            
-                        window.myLine.update();
-                    });
-                </script>
-                 
-         
             </div>
-            
-                <div class="suporte" id="assistencia">
-                    <span class="txt_ajuda">Precisa de Ajuda?</span><br>
-                    <select id="problema" class="combo_ajuda" onchange="mostra_sl()">
-                        <option value="selecione">Selecione uma opção</option>
-                        <option value="site">Problemas com o site</option>
-                        <option value="sensor">Problemas com o sensor</option>
-                    </select><br><br>
-                    <div class="div_msg_suporte_site" id="div_solução_site">
-                        Caso o problema esteja no seu perfil lige para(11)****-**** ou envie 
-                         um email para fungiSystems@gmail.com</div>
-                    <div class="div_msg_suporte_sensores" id="div_solução_sensores">
-                        Caso o problema nos sensores contate a nossa equipe 
-                        especializada enviando um email para  fungiSystems@gmail.com e seu
-                        questionamento sera respondido dentro de 24horas <br>
-                         ou ligue para (11)****-****</div>
-                </div>
+            <div class="suporte" id="assistencia">
+                <span class="txt_ajuda">Precisa de Ajuda?</span><br>
+                <select id="problema" class="combo_ajuda" onchange="mostra_sl()">
+                    <option value="selecione">Selecione uma opção</option>
+                    <option value="site">Problemas com o site</option>
+                    <option value="sensor">Problemas com o sensor</option>
+                </select><br><br>
+                <div class="div_msg_suporte_site" id="div_solução_site">
+                    Caso o problema esteja no seu perfil lige para(11)****-**** ou envie um email para fungiSystems@gmail.com ☺</div>
+                <div class="div_msg_suporte_sensores" id="div_solução_sensores">
+                    Caso o problema nos sensores contate a nossa equipe
+                    especializada enviando um email para fungiSystems@gmail.com e seu
+                    questionamento sera respondido dentro de 24 horas. Ou ligue para (11)****-**** ☺ </div>
+            </div>
+            </section>
+        </div>
     </div>
+
 </body>
+
 </html>
 
 <script>
 
-    function mostrasemanas(){
+    function mostrasemanas() {
         id_semanas.style.display = 'block';
         id_sensores.style.display = 'none';
         assistencia.style.display = 'none';
     }
-    function mostrasensores(){
+    function mostrasensores() {
         id_semanas.style.display = 'none';
         id_sensores.style.display = 'block';
         assistencia.style.display = 'none';
     }
-    function mostrasuporte(){
+    function mostrasuporte() {
         id_semanas.style.display = 'none';
         id_sensores.style.display = 'none';
         assistencia.style.display = 'block';
     }
-    function mostra_sl(){
-        if (problema.value == 'site'){
+    function mostra_sl() {
+        if (problema.value == 'site') {
             div_solução_site.style.display = 'block';
             div_solução_sensores.style.display = 'none';
         }
 
-        else if(problema.value == 'sensor'){
-        div_solução_site.style.display = 'none';
-        div_solução_sensores.style.display = 'block';
-        }
-        
-        else{
+        else if (problema.value == 'sensor') {
             div_solução_site.style.display = 'none';
-        div_solução_sensores.style.display = 'none';
+            div_solução_sensores.style.display = 'block';
+        }
+
+        else {
+            div_solução_site.style.display = 'none';
+            div_solução_sensores.style.display = 'none';
         }
     }
 
