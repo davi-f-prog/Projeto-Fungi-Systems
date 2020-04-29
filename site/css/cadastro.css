@@ -73,9 +73,9 @@ body{
 }
 #caixa_cadastro{
     position: absolute;
-    margin: 12% 25% 5% 30%;
+    margin: 12% 25% 5% 25%;
     height: 650px;
-    width: 550px;
+    width: 50%;
     border-radius: 10%;
     background-color: #0a1725;
     display: flex;
