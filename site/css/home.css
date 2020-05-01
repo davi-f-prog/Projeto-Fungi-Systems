@@ -143,8 +143,9 @@ body{
     background-color:#0e5d84;
 }
 .logo_block{ 
+    object-fit: cover;
     width:100%;
-    height:263px;
+    height:268px;
 }
 #caixa_simulador{
     margin-top:60%;

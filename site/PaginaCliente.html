@@ -148,9 +148,21 @@
                                     type: 'line',
                                     data: {
                                         datasets: [{
-                                            label: "Temperatura x Hora",
+                                            label: "Umidade",
                                             type: 'line',
-                                        }]
+                                        },{
+				                        label: 'Temperatura',
+				                        backgroundColor: window.chartColors.red,
+				                        borderColor: window.chartColors.red,
+				                        fill: false,
+			                            },{
+				                        label: 'Luminosidade',
+				                        backgroundColor: window.chartColors.yellow,
+				                        borderColor: window.chartColors.yellow,
+				                        
+				                        fill: false,
+			                            }
+                                        ]
                                     },
                                     options: {
                                         scales: {
@@ -202,10 +214,14 @@
                                         if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
                                             chart.data.labels.shift();
                                             chart.data.datasets[0].data.shift();
+                                            chart.data.datasets[1].data.shift();
+                                            chart.data.datasets[2].data.shift();
                                         }
 
                                         chart.data.labels.push(this.time++);
                                         chart.data.datasets[0].data.push(parseFloat(data));
+                                        chart.data.datasets[1].data.push(umidade());
+                                        chart.data.datasets[2].data.push(luminosidade());
                                         chart.update();
                                     });
 
@@ -218,6 +234,15 @@
                                 setInterval(() => {
                                     get_data();
                                 }, 1000);
+
+                                function umidade(){
+                                    var umi = parseInt(Math.random()*101);
+                                    return umi;
+                                }
+                                function luminosidade(){
+                                    var lumi = parseInt(Math.random()*101);
+                                    return lumi;
+                                }
 
                             </script>
                         </section>
