@@ -1,0 +1,35 @@
+APRESENTAÇÃO DO GRUPO/INTEGRANTEs/EMPRESA -(slide 1 a 3)- DAVI - ERICK
+Fazer entrada do grupo, apresentar os integrates e a empresa(Nós fazemos parte da Fungi Systems, uma empresa que fornece um sistema o qual lhe auxilia no plantio e colheita de cogumelos shimeji preto).
+
+CONTEXTO/DESAFIO/PROBLEMA -(slide 4, 5, 6, 7, 8)- 
+-(slide 5)- NICOLE - RAOANN - O mercado dos fungos é o nosso segmento, com foco no cogumelo shimeji, este mercado movimenta mais de 35 bilhões de dólares pelo mundo todo ano, sendo na parte culinária ou medicinal. Crescimento de até 12% até o ano que vem, estava previsto para 9%, mas com o Corona vírus este número aumentou, pois a procura sempre foi procura continua sendo maior que a demanda, principalmente no Brasil, e a procura por alimetentos saudaveis e subistitutos para carnes vem sendo cada vez mais procurados. E os fungos são a solução perfeita para os veganos por exemplo, ele traz tantos benefícios a saúde quanto um pedaço de carne traria. 
+
+-(slide 6)- RAOANN - NICOLE - Os países que mais consomem e utilizam o cogumelo shimeji são os EUA, Brasil, Europa Central, grande parte da Ásia mas principalmete a  China, Japão, Coréias do Sul e Norte, e Tailandia. 
+
+-(slide 7)- DAVI - ERICK - Por mais que seja um mercado relativamente grande e com muita variedade, maioria dos produtores não alcamçam suas metas de produção mensal, dado a perdas relacionados ao plantio e a colheita. Fora que muitas vezes são plantados "fora de época" o que os fazem sair mais caros para o produtor do que lucrativos. A cada colheita 20% da produção é perdida, às vezes pelo produto passar um pouco do "ponto" de colher, ou não se desenvolver muito e ser colhido antes da hora. 
+
+INTRODUÇÃO/HLD/LLD -(slide 8, 9, 10, 11)- 
+
+-(slide 8)- VITOR -PETER - Nós temos uma solução para aquele cultivador que deseja usufruir o máximo possível daquilo que planta 
+
+-(slide 9)- PETER -VITOR - O nosso sistema lhe diz os níveis dos principais fatores que influenciam no desenvolvimento do fungo, além de alerta-lo sobre caso estejam altos ou baixos demais. Também lhe diz o dia do plantio e qual será a melhor data para colheita e plantio, refenrenciando-se ao preço de mercado. 
+
+HDL -(slide 10)- VITOR -PETER
+
+LLD -(slide 11)- PETER - VITOR
+
+SITE INSTITUCIONAL -(slide 12) - ERICK - DAVI
+
+TELA DASHBOARD COM GRÁFICO -(está no próprio site)- 
+
+SIMULADOR ARDUINO: NICOLE -RAOANN
+	- Gráfico dinâmico da temperatura
+	- Dados estáticos dos outros sensores em código 
+
+MODELAGEM BANCO DE DADOS - (slide 14) - PETER - VITOR
+
+CRIAÇÃO DAS TABELAS NO MySQL Local -(por fora)- VITOR - PETER
+
+BACKLOG - (slide 15, 16, 17) - NICOLE - RAOANN
+
+FINALIZAÇÃO - (slide 18) - ERICK
