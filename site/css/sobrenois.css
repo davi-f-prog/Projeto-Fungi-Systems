@@ -171,10 +171,13 @@ body, html {
     width: 10%;
     height:10%;
     margin-left: 16.5%;
-    animation-name: anima_icones;
-    animation-duration: 3s;
+    opacity: 0;
 }
 .anima_icones{
+    padding: 5%;
+    background-color:#1a3c61 ;
+}
+.anima_icones img{
     width: 10%;
     height:10%;
     margin-left: 16.5%;
