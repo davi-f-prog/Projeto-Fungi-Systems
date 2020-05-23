@@ -56,6 +56,7 @@ insert into Estufa values
 (null,'2A','1800',1);
 
 create table Sensores(
+idSensores int auto_increment,
 Umidade decimal(4,2),
 Temperatura decimal(4,2),
 Luminosidade int,
@@ -63,8 +64,8 @@ dataHora datetime,
 setor int,
 FKEstufa int,
 foreign key(FKEstufa) references Estufa(idEstufa),
-primary key(dataHora,FKEstufa)
-);
+primary key(idSensores,FKEstufa)
+)auto_increment = 3000;
 
 insert into sensores values
 ('85.22','18.23','1500','2020-01-05 17:10:00','12',1000),
@@ -89,6 +90,7 @@ select *from Cultivador;
 select *from loginusuario;
 select *from estufa;
 select *from sensores;
+drop table sensores;
 
 
 
