@@ -1,10 +1,10 @@
 body, html {
     height: 100%;
     background-image:  url("../imagens/kk.jpeg");
-    background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    /* background-position: center;
+    background-repeat: no-repeat; */
+    /* position: relative; */
 }
 @keyframes anm_corpo{
     0%{
@@ -103,8 +103,6 @@ body, html {
 }
 .txt_ipt{
     margin-left:43%;
-    margin-top:1%;
-    margin-bottom: 5%;;
     font-family: verdana;
     font-size: 100%;
     color:white;
@@ -113,6 +111,7 @@ body, html {
     height:40px;
 }
 .ipt{
+    margin-bottom: 4%;
     height: 20px;
     width: 350px;
     border: 3px solid black;
