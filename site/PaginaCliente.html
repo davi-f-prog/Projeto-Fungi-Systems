@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt">
-
-<head>
-    <meta charset="UTF-8">
+<html lang="br">
+  <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/paginaCliente/clt.css">
-    <link rel="stylesheet" href="css/paginaCliente/sensores.css">
-    <link rel="stylesheet" href="css/paginaCliente/ultimassemanas.css">
-    <link rel="stylesheet" href="css/paginaCliente/suporte.css">
-    <link rel="stylesheet" href="css/paginaCliente/calendariio.css">
-    <title>Pagina do usuario</title>
+    <!--  <script
+      src="https://kit.fontawesome.com/9e43a3780f.js"
+      crossorigin="anonymous"
+    ></script>-->
+    <link rel="stylesheet" href="css/paginaCliente.css" />
+    <title>Pagina do Cliente</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
@@ -20,289 +19,177 @@
             -ms-user-select: none;
         }
     </style>
-</head>
-
-<body>
-    <div class="div_corpo">
-        <nav class="navegacao">
-            <br>
-            <img src="./imagens/Logo.png" class="logo"><br> <br> <br>
-            <ul class="ul_btns">
-                <br> <br> <br>
-                <li class="btn_nav"><a onclick="mostrasemanas()">Ultimas Semanas</a></li>
-                <br> <br> <br>
-                <li class="btn_nav"><a onclick="mostrasensores()">Sensores</a></li>
-                <br>
-                <li class="btn_nav"><a onclick="mostrasuporte()">Suporte</a></li>
-                <br>
-                <li class="btn_nav"><a href="home.html" class="btn_sair">Sair</a></li>
-            </ul>
-        </nav>
-        <div class="div_conteudo">
-            <div class="pag_semanas" id="id_semanas">
-                <span class="titulo_semanas"><b>Ultimas Semanas</b></span>
-                <div class="month">
-                    <ul>
-                        <li class="prev">&#10094;</li>
-                        <li class="next">&#10095;</li>
-                        <li>MAIO<br><span style="font-size:18px">2020</span></li>
-                    </ul>
-                </div>
-
-                <div class="calendario">
-                    <ul class="weekdays">
-                        <li>Dom</li>
-                        <li>Seg</li>
-                        <li>Ter</li>
-                        <li>Qua</li>
-                        <li>Qui</li>
-                        <li>Sex</li>
-                        <li>Sab</li>
-                    </ul>
-                    <ul class="days">
-                        <li id="diaprimeiro">1</li>
-                        <li id="diadois">2</li>
-                        <br>
-                        <li id="diatres">3</li>
-                        <li id="diaquatro">4</li>
-                        <li id="diacinco"><span class="active">5</span></li>
-                        <li id="diaseis">6</li>
-                        <li id="diasete">7</li>
-                        <li id="diaoito">8</li>
-                        <li id="dianove">9</li>
-                        <br>
-                        <li id="diadez">10</li>
-                        <li id="diaonze">11</li>
-                        <li id="diadoze">12</li>
-                        <li id="diatreze">13</li>
-                        <li id="diaquatorze">14</li>
-                        <li id="diaquinze">15</li>
-                        <li id="diadezesseis">16</li>
-                        <br>
-                        <li id="diadezessete">17</li>
-                        <li id="diadezoito">18</li>
-                        <li id="diadezenove">19</li>
-                        <li id="diavinte">20</li>
-                        <li id="diavinteum">21</li>
-                        <li id="diavintedois">22</li>
-                        <li id="diavintetres">23</li>
-                        <br>
-                        <li id="diavintequatro">24</li>
-                        <li id="diavintecinco">25</li>
-                        <li id="diavinteseis">26</li>
-                        <li id="diavintesete">27</li>
-                        <li id="diavinteoito">28</li>
-                        <li id="diavintenove">29</li>
-                        <li id="diatrinta">30</li>
-                        <br>
-                        <li id="diatrintaum">31</li>
-                    </ul>
-                </div>
-                <br>
-                <div id="diasplantio">
-                    Dia do último plantio: <b>25/04/2020</b>;
-                    <br>
-                    Dia atual: <b>05/05/2020</b>;
-                    <br>
-                    Dia de colheita: <b>15/06/2020</b>;
-                </div>
-                <div class="grafico_porcentagem">
-                    <img src="./imagens/graficocliente.png" alt="">
-                    <br> <br>
-                    <div class="total_cogumelo">
-                        <b>200</b> <br>
-                    Total de cogumelos 
-                    </div>
-
-                    <div class="em_preparo">
-                        <b>180</b> <br>
-                    Em Preparo
-                    </div>
-
-                    <div class="prontos"> 
-                        <b>20</b> <br>
-                        Prontos
-                    </div>
-
-                </div>
-            </div>
-            <div class="pag_sensores" id="id_sensores">
-
-                <span id="sensores">Sensores</span>
-
-                <div style="width:75%;">
-                    <section>
-                        <h2>Média: <label id='average'>0.00</label></h2>
-                        <h2>Média Hora: <label id='averageHour'>0.00</label></h2>
-                    </section>
-                    <section style="width:100%">
-                        <canvas id="chart"></canvas>
-                        <section>
-                            <script>
-
-                                var context = document.getElementById("chart").getContext("2d");
-                                context.canvas.width = 1000;
-                                context.canvas.height = 300;
-
-                                var configuration = {
-                                    type: 'line',
-                                    data: {
-                                        datasets: [{
-                                            label: "Temperatura",
-                                            type: 'line',
-                                            borderColor: window.chartColors.red,
-                                            fill: false,
-                                        },{
-				                        label: 'Umidade',
-				                        borderColor: window.chartColors.blue,
-                                        fill: false,
-			                            },{
-				                        label: 'Luminosidade',
-				                        borderColor: window.chartColors.yellow,
-				                        
-				                        fill: false,
-			                            }
-                                        ]
-                                    },
-                                    options: {
-                                        scales: {
-                                            xAxes: [{
-                                                //type: 'value',
-                                                distribution: 'series',
-                                                ticks: {
-                                                    beginAtZero: true
-                                                }
-                                            }],
-                                            yAxes: [{
-                                                scaleLabel: {
-                                                    display: true,
-                                                    labelString: 'Temperatura'
-                                                },
-                                                ticks: {
-                                                    beginAtZero: true
-                                                }
-                                            }]
-                                        },
-                                        animation: {
-                                            duration: 0
-                                        }
-                                    }
-                                };
-
-                                var chart = new Chart(context, configuration);
-                                this.lastIndexTemp = 0;
-                                this.time = 0;
-
-                                function get_data() {
-
-                                    var http = new XMLHttpRequest();
-                                    http.open('GET', 'http://localhost:3000/api', false);
-                                    http.send(null);
-
-                                    var obj = JSON.parse(http.responseText);
-                                    console.log(obj)
-                                    if (obj.data.length == 0) {
-                                        return;
-                                    }
-
-                                    var _lastIndexTemp = this.lastIndexTemp;
-                                    this.lastIndexTemp = obj.data.length;
-                                    listTemp = obj.data.slice(_lastIndexTemp);
-
-                                    listTemp.forEach(data => {
-                                        //Máximo de 60 itens exibidos no gráfico
-                                        if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
-                                            chart.data.labels.shift();
-                                            chart.data.datasets[0].data.shift();
-                                            chart.data.datasets[1].data.shift();
-                                            chart.data.datasets[2].data.shift();
-                                        }
-
-                                        chart.data.labels.push(this.time++);
-                                        chart.data.datasets[0].data.push(parseFloat(data));
-                                        chart.data.datasets[1].data.push(umidade());
-                                        chart.data.datasets[2].data.push(luminosidade());
-                                        chart.update();
-                                    });
-
-                                    document.getElementById('average').textContent = obj.average;
-                                    document.getElementById('averageHour').textContent = obj.averageHour;
-                                }
-
-                                get_data();
-
-                                setInterval(() => {
-                                    get_data();
-                                }, 1000);
-
-                                function umidade(){
-                                    var umi = parseInt(Math.random()*101);
-                                    return umi;
-                                }
-                                function luminosidade(){
-                                    var lumi = parseInt(Math.random()*101);
-                                    return lumi;
-                                }
-
-                            </script>
-                        </section>
-                    </section>
-                </div>
-            </div>
-            <div class="suporte" id="assistencia">
-                <span class="txt_ajuda">Precisa de Ajuda?</span><br>
-                <select id="problema" class="combo_ajuda" onchange="mostra_sl()">
-                    <option value="selecione">Selecione uma opção</option>
-                    <option value="site">Problemas com o site</option>
-                    <option value="sensor">Problemas com o sensor</option>
-                </select><br><br>
-                <div class="div_msg_suporte_site" id="div_solução_site">
-                    Caso o problema esteja no seu perfil lige para(11)****-**** ou envie um email para fungiSystems@gmail.com ☺</div>
-                <div class="div_msg_suporte_sensores" id="div_solução_sensores">
-                    Caso o problema nos sensores contate a nossa equipe
-                    especializada enviando um email para fungiSystems@gmail.com e seu
-                    questionamento sera respondido dentro de 24 horas. Ou ligue para (11)****-**** ☺ </div>
-            </div>
-            </section>
-        </div>
+  </head>
+  <body>
+    <div class="sidebar" id="mySidebar">
+      <a href="#" class="closebtn" onclick="closeNav()">x</a>
+      <a href="#">Dashboard</a>
+      <a href="#">Suporte</a>
+      <a href="home.html">Sair</a>
     </div>
 
-</body>
+    <div class="header">
+      <img src="./imagens/Logo.png" class="logo"onclick="openNav()">
+    </div>
 
+    <div class="main" id="main">
+      <div class="container">
+        <h1>Dashboard</h1>
+        <div class="box b-red">
+          <h1>100%</h1>
+          <h2>Total</h2>
+        </div>
+        <div class="box b-yellow">
+          <h1>80%</h1>
+          <h2>Em preparo</h2>
+        </div>
+        <div class="box b-green">
+          <h1>20%</h1>
+          <h2>Prontos</h2>
+        </div>
+        <!-- Sensores -->
+        <div class="graph g-1">
+          <h3>Sensores</h3>
+          
+        </div>
+        <!-- Calendario -->
+        <div class="graph g-2">
+          <h2>Calendario</h2>
+
+        </div>
+        <div class="graficos">
+          <h2>Gráficos</h2>
+          
+          <div class="pag_sensores" id="id_sensores">
+
+                <section>
+                    <h3>Média: <label id='average'>0.00</label></h3>
+                    <h3>Média Hora: <label id='averageHour'>0.00</label></h3>
+                </section>
+                <section style="width:100%">
+                    <canvas id="chart"></canvas>
+                    <section>
+                        <script>
+
+                            var context = document.getElementById("chart").getContext("2d");
+                            context.canvas.width = 1000;
+                            context.canvas.height = 300;
+
+                            var configuration = {
+                                type: 'line',
+                                data: {
+                                    datasets: [{
+                                        label: "Temperatura",
+                                        type: 'line',
+                                        borderColor: window.chartColors.red,
+                                        fill: false,
+                                    },{
+                                    label: 'Umidade',
+                                    borderColor: window.chartColors.blue,
+                                    fill: false,
+                                    },{
+                                    label: 'Luminosidade',
+                                    borderColor: window.chartColors.yellow,
+                                    
+                                    fill: false,
+                                    }
+                                    ]
+                                },
+                                options: {
+                                    scales: {
+                                        xAxes: [{
+                                            //type: 'value',
+                                            distribution: 'series',
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }],
+                                        yAxes: [{
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Temperatura'
+                                            },
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }]
+                                    },
+                                    animation: {
+                                        duration: 0
+                                    }
+                                }
+                            };
+
+                            var chart = new Chart(context, configuration);
+                            this.lastIndexTemp = 0;
+                            this.time = 0;
+
+                            function get_data() {
+
+                                var http = new XMLHttpRequest();
+                                http.open('GET', 'http://localhost:3000/api', false);
+                                http.send(null);
+
+                                var obj = JSON.parse(http.responseText);
+                                console.log(obj)
+                                if (obj.data.length == 0) {
+                                    return;
+                                }
+
+                                var _lastIndexTemp = this.lastIndexTemp;
+                                this.lastIndexTemp = obj.data.length;
+                                listTemp = obj.data.slice(_lastIndexTemp);
+
+                                listTemp.forEach(data => {
+                                    //Máximo de 60 itens exibidos no gráfico
+                                    if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
+                                        chart.data.labels.shift();
+                                        chart.data.datasets[0].data.shift();
+                                        chart.data.datasets[1].data.shift();
+                                        chart.data.datasets[2].data.shift();
+                                    }
+
+                                    chart.data.labels.push(this.time++);
+                                    chart.data.datasets[0].data.push(parseFloat(data));
+                                    chart.data.datasets[1].data.push(umidade());
+                                    chart.data.datasets[2].data.push(luminosidade());
+                                    chart.update();
+                                });
+
+                                document.getElementById('average').textContent = obj.average;
+                                document.getElementById('averageHour').textContent = obj.averageHour;
+                            }
+
+                            get_data();
+
+                            setInterval(() => {
+                                get_data();
+                            }, 1000);
+
+                            function umidade(){
+                                var umi = parseInt(Math.random()*101);
+                                return umi;
+                            }
+                            function luminosidade(){
+                                var lumi = parseInt(Math.random()*101);
+                                return lumi;
+                            }
+
+                        </script>
+                    </section>
+                </section>
+        </div>
+
+    <script>
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+    </script>
+  </body>
 </html>
-
-<script>
-
-    function mostrasemanas() {
-        id_semanas.style.display = 'block';
-        id_sensores.style.display = 'none';
-        assistencia.style.display = 'none';
-    }
-    function mostrasensores() {
-        id_semanas.style.display = 'none';
-        id_sensores.style.display = 'block';
-        assistencia.style.display = 'none';
-    }
-    function mostrasuporte() {
-        id_semanas.style.display = 'none';
-        id_sensores.style.display = 'none';
-        assistencia.style.display = 'block';
-    }
-    function mostra_sl() {
-        if (problema.value == 'site') {
-            div_solução_site.style.display = 'block';
-            div_solução_sensores.style.display = 'none';
-        }
-
-        else if (problema.value == 'sensor') {
-            div_solução_site.style.display = 'none';
-            div_solução_sensores.style.display = 'block';
-        }
-
-        else {
-            div_solução_site.style.display = 'none';
-            div_solução_sensores.style.display = 'none';
-        }
-    }
-
-</script>
