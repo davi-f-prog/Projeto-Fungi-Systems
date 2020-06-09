@@ -79,11 +79,13 @@ router.get('/luminosity', (request, response, next) => {
 
 router.post('/sendData', (request, response) => {
     temperature = ArduinoDataTemp.List[ArduinoDataTemp.List.length -1];
-    //luminosidade = ArduinoDataLuminosity.List[ArduinoDataLuminosity.List.length -1]
+    luminosidade = ArduinoDataLuminosity.List[ArduinoDataLuminosity.List.length -1]
+    Humidity = ArduinoDataHumidity.List[ArduinoDataHumidity.List.length -1]
 
-    var sql = "INSERT INTO medidas (type, value) VALUES ('temperatura',?)";
+    var sql = "INSERT INTO sensores(Umidade,Temperatura,Luminosidade) VALUES(?)";
+    var values = [Humidity,temperature,luminosidade];
 
-    db.query(sql,temperature, function(err, result) {
+    db.query(sql,[values], function(err, result) {
         if (err) throw err;
         console.log("Number of records inserted: " + result.affectedRows);
       });

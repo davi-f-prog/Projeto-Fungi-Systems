@@ -388,6 +388,16 @@
             http.open('POST', 'http://localhost:3000/api/sendData', false);
             http.send(null);
 		}
+		function sendLuminosidade(){
+			var http = new XMLHttpRequest();
+            http.open('POST', 'http://localhost:3000/api/sendData', false);
+            http.send(null);
+		}
+		function sendHumidity(){
+			var http = new XMLHttpRequest();
+            http.open('POST', 'http://localhost:3000/api/sendData', false);
+            http.send(null);
+		}
 
 
 
@@ -398,6 +408,8 @@
 			get_switch();
 			get_lumi();
 			sendTemperature();
+			sendLuminosidade();
+			sendHumidity();
 		}, 3000);
 		
 

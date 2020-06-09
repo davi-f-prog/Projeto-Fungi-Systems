@@ -4,7 +4,7 @@ var connection = mysql.createConnection({
     port     : '3306',
     user     : 'Davi',
     password : '010203as',
-    database : 'sensor'
+    database : 'FungiSystem'
 });
 
 connection.connect(function(err) {

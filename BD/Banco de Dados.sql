@@ -1,7 +1,6 @@
 create database FungiSystem;
 
 
-
 use FungiSystem;
 
 create table Cultivador(
@@ -56,41 +55,22 @@ insert into Estufa values
 (null,'2A','1800',1);
 
 create table Sensores(
-idSensores int auto_increment,
+idSensores int auto_increment primary key,
 Umidade decimal(4,2),
 Temperatura decimal(4,2),
 Luminosidade int,
 dataHora datetime,
 setor int,
 FKEstufa int,
-foreign key(FKEstufa) references Estufa(idEstufa),
-primary key(idSensores,FKEstufa)
+foreign key(FKEstufa) references Estufa(idEstufa)
 )auto_increment = 3000;
 
-insert into sensores values
-('85.22','18.23','1500','2020-01-05 17:10:00','12',1000),
-('86.00','19.00','1523','2020-01-05 17:20:00','13',1000),
-('86.30','19.00','1520','2020-01-05 17:30:00','14',1000),
-('85.40','18.90','1550','2020-02-25 22:50:39','23',1001),
-('87.00','15.40','1600','2020-02-25 23:00:00','24',1001),
-('87.80','15.60','1650','2020-02-25 23:10:00','25',1001),
-('87.40','15.00','1600','2020-02-25 23:20:00','26',1001),
-('88.00','16.40','1700','2020-03-20 18:00:00','8',1002),
-('88.10','17.40','1710','2020-03-20 18:10:00','9',1002),
-('88.00','18.30','1500','2020-04-20 11:00:00','56',1003),
-('88.89','18.20','1580','2020-04-20 11:10:00','54',1003),
-('88.80','18.90','1600','2020-04-20 11:20:00','55',1003),
-('89.00','14.30','1800','2020-06-14 04:10:00','325',1006),
-('89.45','20.30','1850','2020-06-14 04:20:00','326',1006),
-('89.00','14.20','1890','2020-06-14 04:30:00','327',1006),
-('89.00','14.30','1800','2020-08-20 06:50:00','123',1005),
-('89.85','14.10','1809','2020-08-20 07:00:50','124',1005),
-('88.00','18.30','1500','2020-09-20 10:00:00','89',1004);
+
 select *from Cultivador;
 select *from loginusuario;
 select *from estufa;
 select *from sensores;
-drop table sensores;
+
 
 
 
