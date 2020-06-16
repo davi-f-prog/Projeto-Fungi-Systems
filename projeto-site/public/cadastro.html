@@ -2,71 +2,56 @@
 <html lang="pt">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Página com exemplo de Cadastro de usuário</title>
-
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/cadastro.css">
+  <script src="js/cadastro.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
 </head>
 
 <body>
-
-    <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
-        Nome: <input type="text" name="nome" required minlength="4">
-        <br>
-        Usuário: <input type="text" name="login" required minlength="4">
-        <br>
-        Senha: <input type="password" name="senha" required minlength="4">
-        <br>
-        <button id="btn_entrar">Cadastrar</button>
-    </form>
-    
-    <img src="aguarde2.gif" id="img_aguarde" style="display: none;" width="100px">
-    
-    <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
-        Erro no cadastro
+  <div id="navbar">
+    <img id="brand_logo" src="./imagens/logo.png">
+    <b id="nav_titulo">Fungi Systems</b>
+    <div id="navbar_links">
+      <a class="nav_link" href="home.html">Home</a>
+      <a class="nav_link" href="home.html#titulo_simulador">Simulador Financeiro</a>
+      <a class="nav_link" href="sobrenos.html">Sobre nós</a>
     </div>
-
+  </div>
+  <center>
+    <div id="caixa_cadastro">
+      <img id="cadastro_logo" src="./imagens/Logo.png">
+      <div id="cadastro_form">
+        <form>
+        <label class="txt_ipt">Nome: 
+          <input id="id_nome"  class="ipt" type="text" placeholder="Nome">
+        </label>
+        <label class="txt_ipt">Nome da empresa: 
+          <input class="ipt" type="text" placeholder="Nome da empresa">
+        </label>
+        <label class="txt_ipt">E-mail: 
+          <input class="ipt" type="email" placeholder="Email">
+        </label>    
+        <label class="txt_ipt">Senha: 
+          <input  class="ipt" type="password" placeholder="Senha">
+        </label>        
+        <label class="txt_ipt">Confirmar senha: 
+          <input class="ipt" type="password" placeholder="Confirmar">
+        </label>        
+        <label class="txt_ipt">CEP: 
+          <input class="ipt" type="number" placeholder="CEP">
+        </label>
+      </form>
+        <button onclick="cadastrado()" class="btn_cad" type="submit"><a style="color: black!important;" href="login.html">Cadastrar</a></button><br>
+        <a class="link-login" href="login.html">Já tem uma conta? Clique aqui</a>
+      </div>
+    </div>
+  </center>
 </body>
-
 </html>
 <script>
-
-    function cadastrar() {
-        aguardar();
-        var formulario = new URLSearchParams(new FormData(form_cadastro));
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            body: formulario
-        }).then(function (response) {
-            
-            if (response.ok) {
-
-                window.location.href='login.html';
-
-            } else {
-
-                console.log('Erro de cadastro!');
-                response.text().then(function (resposta) {
-                    div_erro.innerHTML = resposta;
-                });
-                finalizar_aguardar();
-            }
-        });
-
-        return false;
-    }
-
-    function aguardar() {
-        btn_entrar.disabled = true;
-        img_aguarde.style.display='block';
-        div_erro.style.display='none';
-    }
-
-    function finalizar_aguardar() {
-        btn_entrar.disabled = false;
-        img_aguarde.style.display='none';
-        div_erro.style.display='block';
-    }
-
+        function  cadastrado(){
+            alert(`Estamos quase lá ${id_nome.value}!! Verifique agora seu email para confirmação`)
+          }
 </script>
