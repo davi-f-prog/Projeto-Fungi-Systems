@@ -33,6 +33,9 @@
             <br>
             <a class="link-cadastro" href="cadastro.html">Não tem uma conta? Clique aqui</a>
         </form>
+        <div id="div_erro" style="display: none;">
+            Erro no cadastro
+        </div>
     </div>
 </body>
 
@@ -58,7 +61,7 @@
 
             } else {
 
-                console.log('Erro de login!');
+                alert('Erro de login!');
 
                 response.text().then(texto => {
                     console.error(texto);
@@ -68,6 +71,18 @@
         });
 
         return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.display='block';
+        div_erro.style.display='none';
+    }
+
+    function finalizar_aguardar() {
+        btn_entrar.disabled = false;
+        img_aguarde.style.display='none';
+        div_erro.style.display='block';
     }
 
 </script>

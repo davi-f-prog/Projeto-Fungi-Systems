@@ -1,0 +1,2 @@
+- dentro da pasta entre no git bash
+- digite npm i e aguarde o processo terminar
