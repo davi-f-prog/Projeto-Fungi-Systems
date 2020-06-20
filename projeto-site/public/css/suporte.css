@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .container {
+    text-align: center;
+    width: 90%;
+    margin: auto;
+  }
+  h1{
+      color: #459eff;
+  }
+  h3{
+      color: #459eff;
+  }
+
+  
+  .main {
+    transition: 0.3s;
+    background-color: black;
+  }
+  .box-suporte{
+      width: 80%;
+      height: 500px;
+      background-color: white;
+      margin-top: 50px;
+      margin-left: 10%;
+      border-radius: 100px;
+  }
+  .box-informacoes{
+      width: 50%;
+      height: 250px ;
+     margin-bottom: 7%;
+      float: left;
+      border-top-left-radius: 100px;
+      border-bottom-left-radius: 100px;
+     
+  }
+  .alternativa{
+ 
+   
+      margin-top: 13%;
+  }
+  .alternativa img{
+      width: 10%;
+      margin-right: 5%;
+
+  }
+  .box-msg{
+    width: 50%;
+      height: 500px ;
+      background-color:#0a1725;
+      float: left;
+      border-bottom-right-radius: 100px;
+      border-top-right-radius: 100px;
+  }
+  .icones{
+      width: 10%;
+  }
+  .box-informacoes li{
+       list-style-type: none;
+       margin-top: 3%;
+
+  }
+  .box-msg form{
+      margin: 40px 0;
+      width: 45%;
+      float: left;
+      color: #459eff;
+      margin-left: 7%;
+  }
+
+  .box-msg input{
+      padding: 7px 30px;
+      width: 100%;
+      margin-bottom: 8%;
+     
+  }
+  .btn-enviar{
+      border-radius: 50px;
+      background-color: #459eff;
+      border: 3px solid black;
+  }
+  .icone-contato{
+      position: absolute;
+      width: 18%;
+      margin-top: 14%;
+      margin-right: 20%;
+  }

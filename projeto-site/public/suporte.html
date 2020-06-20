@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/suporte.css">
+    <link rel="stylesheet" href="css/header-paginacliente.css">
+    <script src="js/anima-menu.js"></script>
+</head>
+<body>
+    <div class="sidebar" id="mySidebar">
+        <a href="#" class="closebtn" onclick="closeNav()">x</a>
+       <span>Olá, <b id="b_usuario"></b></span> 
+        <a href="PaginaCliente.html">Dashboard</a>
+        <a href="suporte.html">Suporte</a>
+        <a href="home.html">Sair</a>
+      </div>
+  
+      <div class="header">
+        <img src="./imagens/Logo.png" class="logo"onclick="openNav()">
+      </div>
+  
+      <div class="main" id="main">
+  
+        <div class="container">
+
+            <div class="box-suporte">
+
+                <div class="box-informacoes">
+                    <h1>Entre em Contato</h1>
+                    <p>Está com algum problema? entre em contado com a gente, ou escreva um email.</p>
+                    <li> <img class="icones" src="imagens/telefone.png" alt=""><b>Telefone:</b>  (11) 4646-4646<br> (11) 96966-9696</li>
+                    <li><img class="icones" src="imagens/email.png" alt=""><b> Email: </b> fungisystems@gmail.com</li>
+
+                    <div class="alternativa">
+                        <h3>Como prefere receber nossa mensagem:</h3>
+
+                        <label for="">Ligação</label>
+                        <input type="radio">
+
+                        <label for="">Email</label>
+                        <input type="radio">
+
+                        <label for="">WhatsApp</label>
+                        <input type="radio">
+                            <br> <br>
+                        <img src="imagens/celular.png" alt="">
+                        <img src="imagens/email-icone.png" alt="">
+                        <img src="imagens/whatsapp-icone.png" alt="">
+                    </div>
+                    
+                </div>
+
+                <div class="box-msg">
+                    <form action="">
+                        <label for="nomecompleto">Nome Completo:</label>
+                        <input type="text" placeholder="Nome Completo">
+
+                        <label for="contato">Contato:</label>
+                        <input type="text" placeholder="Contato">
+
+                        <label for="email">Email:</label>
+                        <input type="email" placeholder="Email">
+
+                        <label for="text-msg">Digite sua Mensagem:</label>
+                        <textarea name="" id="" cols="38" rows="10" placeholder="digite sua mensagem"></textarea>
+
+                        <input class="btn-enviar" type="submit" >
+                    </form>
+                    <img class="icone-contato" src="imagens/entre-contato.png" alt="">
+                </div>
+
+               
+
+            </div>
+
+        </div>
+      </div>
+</body>
+</html>
+

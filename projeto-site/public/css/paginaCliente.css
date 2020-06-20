@@ -1,7 +1,11 @@
 body {
   margin: 0;
-  background-color: #ecf0f1;
+  background-color: black;
   font-family: Arial, Helvetica, sans-serif;
+}
+@font-face {
+  font-family: Revamped;
+  src: url(../font/Revamped.otf)
 }
 
 .container {
@@ -10,26 +14,14 @@ body {
   margin: auto;
 }
 
-.header {
-  height: 50px;
-  width: 100%;
-  background-color: #0a1725;
-}
-.logo{
-  width: 50px;
-  margin: 5px;
-}
-
-.icon {
-  margin-left: 45px;
-  display: inline-block;
-  color: #0a1725;
-}
-
 .main {
   transition: 0.3s;
+  background-color: black;
 }
-
+.titulo-dashboard{
+  color: white;
+  font-family: Revamped;
+}
 .box {
   display: inline-block;
   width: 30%;
@@ -81,39 +73,19 @@ body {
   background-color: white;
   margin-bottom: 25px;
 }
-
-/* SIDEBAR */
-.openbtn {
-  font-size: 30px;
-  cursor: pointer;
-  color: white;
-  padding: 10px 15px;
-  border: none;
+.grafico_luminosidade{
+  display: inline-block;
+  margin: 5px;
+  margin-top: 25px;
+  border-radius: 5px;
+  width: 92%;
+  height: 300px ;
+  background-color: white;
+  margin-bottom: 25px;
 }
 
-.sidebar {
-  height: 100%;
-  width: 0;
-  background-color: #0a1725;
-  position: fixed;
-  overflow-x: hidden;
-  transition: 0.3s;
-}
 
-.sidebar a {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-}
 
-.sidebar a:hover {
-  color: #f1f1f1;
-  background-color: #818181;
-}
 
-.sidebar .closebtn {
-  font-size: 37px;
-  margin-left: 80%;
-}
+
+
