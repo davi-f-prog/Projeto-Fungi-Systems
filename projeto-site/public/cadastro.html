@@ -23,35 +23,89 @@
     <div id="caixa_cadastro">
       <img id="cadastro_logo" src="./imagens/Logo.png">
       <div id="cadastro_form">
-        <form>
-        <label class="txt_ipt">Nome: 
-          <input id="id_nome"  class="ipt" type="text" placeholder="Nome">
-        </label>
-        <label class="txt_ipt">Nome da empresa: 
-          <input class="ipt" type="text" placeholder="Nome da empresa">
-        </label>
-        <label class="txt_ipt">E-mail: 
-          <input class="ipt" type="email" placeholder="Email">
-        </label>    
-        <label class="txt_ipt">Senha: 
-          <input  class="ipt" type="password" placeholder="Senha">
-        </label>        
-        <label class="txt_ipt">Confirmar senha: 
-          <input class="ipt" type="password" placeholder="Confirmar">
-        </label>        
-        <label class="txt_ipt">CEP: 
-          <input class="ipt" type="number" placeholder="CEP">
-        </label>
-      </form>
-        <button onclick="cadastrado()" class="btn_cad" type="submit"><a style="color: black!important;" href="login.html">Cadastrar</a></button><br>
+        <form onsubmit="verificar()">
+          <label class="txt_ipt">Nome:
+            <input id="id_nome" class="ipt" type="text" placeholder="Nome">
+          </label>
+          <label class="txt_ipt">Nome da empresa:
+            <input id="nome_empresa" class="ipt" type="text" placeholder="Nome da empresa">
+          </label>
+          <label class="txt_ipt">E-mail:
+            <input id="email" class="ipt" placeholder="Email">
+          </label>
+          <label class="txt_ipt">Senha:
+            <input id="senhas" class="ipt" type="password" placeholder="Senha">
+          </label>
+          <label class="txt_ipt">Confirmar senha:
+            <input id="senhas1" class="ipt" type="password" placeholder="Confirmar">
+          </label>
+          <label class="txt_ipt">CEP:
+            <input id="cep1" class="ipt" type="number" placeholder="CEP">
+          </label>
+          <button class="btn_cad" type="submit">Cadastrar</a></button><br>
+        </form>
         <a class="link-login" href="login.html">Já tem uma conta? Clique aqui</a>
       </div>
     </div>
   </center>
 </body>
+
 </html>
+<div class="error" id="texto" style="display: none;"></div>
 <script>
-        function  cadastrado(){
-            alert(`Estamos quase lá ${id_nome.value}!! Verifique agora seu email para confirmação`)
-          }
+  let erros = [];
+  function verificar() {
+    event.preventDefault();
+
+    let login = (id_nome.value);
+    let empresa = (nome_empresa.value);
+    let e_mail = (email.value);
+    let senha = (senhas.value);
+    let senha_confirme = (senhas1.value);
+    let cep = (cep1.value);
+    texto.innerHTML = '';
+    erros = [];
+
+
+    if (login.length == 0) {
+      erros.push('Nome inválido')
+    }
+
+    if (empresa.length == 0) {
+      erros.push('Empresa inválida')
+    }
+
+    if (e_mail.indexOf('@') == -1 || e_mail.indexOf('.com') == -1 || !e_mail) {
+      erros.push('E-mail inválido')
+    }
+
+    if (senha.length == 0) {
+      erros.push('Senha inválida')
+    }
+
+    if (senha_confirme.length == 0) {
+      erros.push('Confirme sua senha')
+    }
+
+    if (cep.length < 8) {
+      erros.push('CEP inválido')
+    }
+
+    if (erros.length > 0) {
+      texto.style.display = 'block'
+
+      for (let contador = 0; contador < erros.length; contador++) {
+        texto.innerHTML += `${erros[contador]}<br>`
+      }
+    }
+    if (erros.length == 0) {
+      texto.style.display = 'none'
+      alert(`Estamos quase lá ${id_nome.value}!! Verifique agora seu email para confirmação`)
+      window.location.assign("login.html")
+
+      for (let contador = 0; contador < erros.length; contador++) {
+        texto.innerHTML += `${erros[contador]}<br>`
+      }
+    }
+  }
 </script>

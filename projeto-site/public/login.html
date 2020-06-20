@@ -9,6 +9,7 @@
     <title>Página com exemplo de Autenticação (Login)</title>
 
 </head>
+
 <body>
 
     <div id="navbar">
@@ -21,47 +22,45 @@
         </div>
     </div>
     <div class="div_corpo">
-        <form class="div_conteudo" id="form_login" method="post" onsubmit="return entrar()">
+        <form class="div_conteudo" id="form_login" method="post" onsubmit="return verificar(), entrar()">
             <img src="imagens/Logo.png" class="logo_form">
             <label class="txt_ipt">E-mail:
-                <input class="ipt" type="text" name="login" placeholder="Login">
+                <input id="usuario" class="ipt" type="text" name="login" placeholder="Login">
             </label>
             <label class="txt_ipt">Senha:
-                <input class="ipt" type="password" name="senha" placeholder="Senha">
+                <input id="senhas" class="ipt" type="password" name="senha" placeholder="Senha">
             </label>
             <button class="btn_ent" id="btn_entrar" type="submit">Entrar</button>
             <br>
             <a class="link-cadastro" href="cadastro.html">Não tem uma conta? Clique aqui</a>
         </form>
-        <div id="div_erro" style="display: none;">
-            Erro no cadastro
-        </div>
     </div>
+    <div class="error" id="texto" style="display: none;"></div>
 </body>
 
 </html>
 <script>
-
+    erros = [];
     function entrar() {
         var formulario = new URLSearchParams(new FormData(form_login));
         fetch("/usuarios/autenticar", {
             method: "POST",
             body: formulario
         }).then(resposta => {
-            
+
             if (resposta.ok) {
 
                 resposta.json().then(json => {
 
                     sessionStorage.login_usuario_meuapp = json.loginn;
                     sessionStorage.nome_usuario_meuapp = json.loginn;
-                    
+
                     window.location.href = 'grafico-chartjs.html';
                 });
 
             } else {
 
-                alert('Erro de login!');
+                console.log('Erro de login!');
 
                 response.text().then(texto => {
                     console.error(texto);
@@ -73,16 +72,36 @@
         return false;
     }
 
-    function aguardar() {
-        btn_entrar.disabled = true;
-        img_aguarde.style.display='block';
-        div_erro.style.display='none';
-    }
+    function verificar() {
+        event.preventDefault();
 
-    function finalizar_aguardar() {
-        btn_entrar.disabled = false;
-        img_aguarde.style.display='none';
-        div_erro.style.display='block';
+        let login1 = (usuario.value);
+        let senha1 = (senhas.value);
+        texto.innerHTML = '';
+        erros = [];
+
+        if (login1.length == 0) {
+            erros.push('Nome inválido')
+        }
+        if (senha1.length == 0) {
+            erros.push('Senha inválida')
+        }
+        if (erros.length > 0) {
+            texto.style.display = 'block'
+
+            for (let contador = 0; contador < erros.length; contador++) {
+                texto.innerHTML += `${erros[contador]}<br>`
+            }
+        }
+        if (erros.length == 0) {
+            texto.style.display = 'none'
+
+            for (let contador = 0; contador < erros.length; contador++) {
+                texto.innerHTML += `${erros[contador]}<br>`
+            }
+        } else {
+            entrar()
+        }
     }
 
 </script>
