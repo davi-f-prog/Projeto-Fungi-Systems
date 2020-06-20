@@ -35,14 +35,14 @@ body {
   opacity: 0.5;
 }
 
-.b-green {
-  background-color: #27ae60;
+.temp {
+  background-color: #eb4034;
 }
-.b-yellow {
-  background-color: #f1c40f;
+.humi {
+  background-color: #3232e3;
 }
-.b-red {
-  background-color: #3571cb;
+.lumi {
+  background-color: #e3d732;
 }
 
 .graph {
@@ -72,6 +72,12 @@ body {
   width: 92%;
   background-color: white;
   margin-bottom: 25px;
+}
+.temphumi{
+  width:75%;
+  margin-left:12%;
+  margin-right: 12%;
+  margin-bottom: 5%;
 }
 .grafico_luminosidade{
   display: inline-block;

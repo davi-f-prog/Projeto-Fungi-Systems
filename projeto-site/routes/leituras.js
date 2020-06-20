@@ -37,7 +37,25 @@ router.get('/tempo-real', function (req, res, next) {
 	
 	console.log(`Recuperando a última leitura`);
 
-	const instrucaoSql = `select top 1 umidade,temperatura,luminosidade, FORMAT(dataHora,'HH:mm:ss') as momento_grafico  
+	const instrucaoSql = `select top 1 umidade,temperatura, FORMAT(dataHora,'HH:mm:ss') as momento_grafico  
+						from sensores order by idSensores desc`;
+
+	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+		.then(resultado => {
+			res.json(resultado[0]);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
+  
+});
+
+// tempo real (último valor de cada leitura)
+router.get('/tempo-real-lumi', function (req, res, next) {
+	
+	console.log(`Recuperando a última leitura`);
+
+	const instrucaoSql = `select top 10 luminosidade, FORMAT(dataHora,'HH:mm:ss') as momento_grafico  
 						from sensores order by idSensores desc`;
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
