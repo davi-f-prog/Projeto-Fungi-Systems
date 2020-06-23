@@ -4,11 +4,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--  <script
-      src="https://kit.fontawesome.com/9e43a3780f.js"
-      crossorigin="anonymous"
-    ></script>-->
-
   <title>Pagina do Cliente</title>
   <script src="js/anima-menu.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
@@ -51,34 +46,33 @@
         <h2>Média hora luminosidade </h2>
       </div>
       <div class="graficos">
-        <h2>Gráficos</h2>
+        <h2>Temperatura e Humidade</h2>
         <div class="pag_sensores" id="id_sensores">
-          <section>
-            <h3>Média: <label id='average'>0.00</label></h3>
-            <h3>Média Hora: <label id='averageHour'>0.00</label></h3>
-          </section>
           <div class="temphumi">
             <div id="div_aguarde">Dados sendo obtidos...</div>
-            <canvas id="canvas_grafico"></canvas>
+            <canvas id="temperatura_humidade"></canvas>
           </div>
         </div>
       </div>
-      <!-- Sensores -->
-      <div class="graph g-1">
-        <h3>Sensores</h3>
+      <div class="graph status_estufa">
+        <h2>Status da Estufa</h2>
+        <canvas id="status_estufa"></canvas>
       </div>
-      <!-- Calendario -->
-      <div class="graph g-2">
-        <h2>Calendario</h2>
+      <div class="graph luminosidade">
+        <h3>Luminosidade</h3>
+        <canvas id="myLineChart"></canvas>
       </div>
-      <div class="grafico_luminosidade">
-        <h2>Gráfico de Luminosidade</h2>
-      </div>
+      <!-- <div class="grafico_luminosidade">
+        <h2>Histórico na semana</h2>
+        <canvas id="grafBarras"></canvas>
+      </div> -->
     </div>
 </body>
 
 </html>
+
 <script>
+
 
   window.onload = obterDadosGrafico;
 
@@ -244,7 +238,7 @@
   function plotarGrafico(dados) {
     console.log('iniciando plotagem do gráfico...');
 
-    var ctx = canvas_grafico.getContext('2d');
+    var ctx = temperatura_humidade.getContext('2d');
     window.grafico_linha = Chart.Line(ctx, {
       data: dados,
       options: configurarGrafico()
@@ -253,174 +247,131 @@
     setTimeout(atualizarGrafico, 5000);
   }
 
+var ctx3 = document.getElementById("status_estufa").getContext("2d");
 
+// Cria-se um objeto chamado dados onde:
+var data_3 = {
+    datasets: [{
+        // cria-se um vetor data, com os valores a ser dispostos no gráfico
+        data: [],
+        // cria-se uma propriedade para adicionar cores aos respectivos valores do vetor data
+        backgroundColor: ['rgb(55, 99, 132)','#4f57e8' , 'rgb(255, 199, 132)', '#e6f2fc']
+    }],
+    // cria-se legendas para os respectivos valores do vetor data
+    labels: ['Prontos','Em preparo']
+};
 
-   var dados = {
-    type: 'bar',
-    labels: [],
-    datasets: [
-      {
-        yAxisID: 'y-temperatura',
-        label: 'Temperatura',
-        borderColor: window.chartColors.red,
-        backgroundColor: window.chartColors.red,
-        fill: false,
-        data: []
-      },
-      {
-        yAxisID: 'y-umidade',
-        label: 'Umidade',
-        borderColor: window.chartColors.blue,
-        backgroundColor: window.chartColors.blue,
-        fill: false,
-        data: []
-      }
-      // {
-      //   yAxisID: 'y-luminosidade',
-      //   label: 'Luminosidade',
-      //   borderColor: window.chartColors.yellow,
-      //   backgroundColor: window.chartColors.yellow,
-      //   fill: false,
-      //   data: []
-      // }
-    ]
-  };
-
-
-  // só mexer se quiser alterar o tempo de atualização
-  // ou se souber o que está fazendo!
-  function atualizarGrafico() {
-
-    fetch('/leituras/tempo-real', { cache: 'no-store' }).then(function (response) {
-      if (response.ok) {
-        response.json().then(function (novoRegistro) {
-
-          console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-
-          // tirando e colocando valores no gráfico
-          dados.labels.shift(); // apagar o primeiro
-          dados.labels.push(novoRegistro.momento_grafico); // incluir um novo momento
-          dados.datasets[0].data.shift();  // apagar o primeiro de temperatura
-          dados.datasets[1].data.shift();  // apagar o primeiro de umidade
-          // dados.datasets[2].data.shift();  // apagar o primeiro de luminosidade
-          dados.datasets[0].data.push(novoRegistro.temperatura); // incluir uma nova leitura de temperatura
-          dados.datasets[1].data.push(novoRegistro.umidade); // incluir uma nova leitura de umidade
-          // dados.datasets[2].data.push(novoRegistro.luminosidade); // incluir uma nova leitura de luminosidade
-          window.grafico_linha.update();
-
-          setTimeout(atualizarGrafico, 5000);
-        });
-      } else {
-        console.error('Nenhum dado encontrado ou erro na API');
-        setTimeout(atualizarGrafico, 5000);
-      }
-    })
-      .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-      });
-
+var status_estufa = new Chart(ctx3, {
+  type: 'pie',
+  data: data_3,
+  options: {
+    
   }
+});
 
-  // altere aqui as configurações do gráfico
-  // (tamanhos, cores, textos, etc)
-  function configurarGrafico() {
-    var configuracoes = {
-      responsive: true,
-      animation: { duration: 500 },
-      hoverMode: 'index',
-      stacked: false,
-      title: {
-        display: true,
-        text: 'Histórico recente de temperatura e umidade'
-      },
-      scales: {
-        yAxes: [{
-          type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-          display: true,
-          position: 'left',
-          id: 'y-temperatura',
-        }, {
-          type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-          display: true,
-          position: 'right',
-          id: 'y-umidade',
+function obterDadosGraficoPizza() {
 
-          // grid line settings
-          gridLines: {
-            drawOnChartArea: false, // only want the grid lines for one axis to show up
-          },
-        }
-        // , {
-        //   type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-        //   display: true,
-        //   position: 'right',
-        //   id: 'y-luminosidade',
-
-        //   // grid line settings
-        //   gridLines: {
-        //     drawOnChartArea: false, // only want the grid lines for one axis to show up
-        //   },
-        // }
-      ],
-      }
-    };
-
-    return configuracoes;
-  }
-
-  // altere aqui como os dados serão exibidos
-  // e como são recuperados do BackEnd
-  function obterDadosGrafico() {
-
-    fetch('/leituras/ultimas', { cache: 'no-store' }).then(function (response) {
-      if (response.ok) {
+fetch('/leituras/qt_pronto', { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
         response.json().then(function (resposta) {
 
-          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-          resposta.reverse();
+            resposta.reverse();
 
-          for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-
-            // aqui, após 'registro.' use os nomes 
-            // dos atributos que vem no JSON 
-            // que gerou na consulta ao banco de dados
-
-            dados.labels.push(registro.momento_grafico);
-
-            dados.datasets[0].data.push(registro.temperatura);
-            dados.datasets[1].data.push(registro.umidade);
-            // dados.datasets[2].data.push(registro.luminosidade);
-          }
-          console.log(JSON.stringify(dados));
-
-          div_aguarde.style.display = 'none';
-
-          plotarGrafico(dados);
+            for (i = 0; i < resposta.length; i++) {
+                var registro = resposta[i];
+      
+                // data_3.labels.push(registro.descricao);
+                data_3.datasets[0].data.push(registro.quantidade);
+                data_3.datasets[0].data.push(registro.total);
+            }
+            window.status_estufa.data=data_3;          
+            window.status_estufa.update();
         });
-      } else {
+    } else {
         console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+.catch(function (error) {
+    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+});
+
+}
+obterDadosGraficoPizza();
+
+var ctx4 = document.getElementById("myLineChart").getContext("2d");
+
+var data_4 = {
+  labels: [],
+  datasets: [{
+      label: 'Variação em tempo real da luminosidade',
+      backgroundColor: '#e3d732',
+      data: [],
+        ticks: {
+          stepSize: 10,
+          beginAtZero: false,
+        }  
+  }]
+}
+
+var myLineChart = new Chart(ctx4, {
+  type: 'line',
+  data: data_4,
+  options: {
+    scales: {
+      yAxes: [{
+        type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+          display: true,
+          position: 'left',
+          id: 'y-luminosidade',
+        ticks: {
+          stepSize: 10,
+          beginAtZero: false
+        }
+      }]
+    },
+    elements: {
+      line: {
+          tension: 0  
       }
-    })
-      .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-      });
+    }
+  }  
+});
 
-  }
+function obterDadosGraficoLinha() {
 
-  // só altere aqui se souber o que está fazendo!
-  function plotarGrafico(dados) {
-    console.log('iniciando plotagem do gráfico...');
+  fetch('/leituras/lumens', { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+          response.json().then(function (resposta) {
 
-    var ctx = canvas_grafico.getContext('2d');
-    window.grafico_linha = Chart.Line(ctx, {
-      data: dados,
-      options: configurarGrafico()
-    });
+              console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-    setTimeout(atualizarGrafico, 5000);
-  }
+              resposta.reverse();
+
+              for (i = 0; i < resposta.length; i++) {
+                  var registro = resposta[i];
 
 
-</script>
+                  // data_4.labels.shift(); // apagar o primeiro
+                  data_4.labels.push(registro.momento_grafico);
+                  // data_4.datasets[0].data.shift();
+        
+                  // data_4.labels.push(registro.dia);
+                  data_4.datasets[0].data.push(registro.luminosidade);
+              }
+            window.myLineChart.data=data_4;          
+            window.myLineChart.update();
+          });
+      } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+      }
+  })
+  .catch(function (error) {
+      console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+  });
+
+}
+
+obterDadosGraficoLinha();
+</script>    

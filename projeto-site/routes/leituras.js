@@ -32,6 +32,54 @@ router.get('/ultimas', function(req, res, next) {
 });
 
 
+router.get('/qt_pronto', function(req, res, next) {
+	
+	// quantas são as últimas leituras que quer? 8 está bom?
+	const limite_linhas = 7;
+
+	console.log(`Recuperando as últimas ${limite_linhas} leituras`);
+	
+	const instrucaoSqlpizza = `select sum(TotalCogumelo) as 'total', sum(qt_prontos) as 'quantidade' from Estufa;`;
+
+	sequelize.query(instrucaoSqlpizza, {
+		model: Leitura,
+		mapToModel: true 
+	  })
+	  .then(resultado => {
+			console.log(`Encontrados: ${resultado.length}`);
+			res.json(resultado);
+	  }).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+	  });
+});
+
+router.get('/lumens', function(req, res, next) {
+	
+	// quantas são as últimas leituras que quer? 8 está bom?
+	const limite_linhas = 7;
+
+	console.log(`Recuperando as últimas ${limite_linhas} leituras`);
+	
+	const instrucaoSqllumi = `select top ${limite_linhas}
+						luminosidade,
+						FORMAT(dataHora,'HH:mm:ss') as momento_grafico 
+						from sensores order by idSensores desc`;
+
+	sequelize.query(instrucaoSqllumi, {
+		model: Leitura,
+		mapToModel: true 
+	  })
+	  .then(resultado => {
+			console.log(`Encontrados: ${resultado.length}`);
+			res.json(resultado);
+	  }).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+	  });
+});
+
+
 // tempo real (último valor de cada leitura)
 router.get('/tempo-real', function (req, res, next) {
 	

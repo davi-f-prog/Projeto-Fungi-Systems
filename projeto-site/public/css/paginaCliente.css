@@ -56,12 +56,14 @@ body {
   height: 220px;
 }
 
-.g-1 {
-  width: 61%;
+.status_estufa {
+  width: 25%;
+  height:500px;
 }
 
-.g-2 {
-  width: 30%;
+.luminosidade {
+  width: 66%;
+  height: 500px;
 }
 
 .graficos {
