@@ -85,7 +85,7 @@ router.get('/tempo-real', function (req, res, next) {
 	
 	console.log(`Recuperando a última leitura`);
 
-	const instrucaoSql = `select top 1 umidade,temperatura, FORMAT(dataHora,'HH:mm:ss') as momento_grafico  
+	const instrucaoSql = `select top 1 umidade,temperatura,luminosidade, FORMAT(dataHora,'HH:mm:ss') as momento_grafico  
 						from sensores order by idSensores desc`;
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
@@ -122,14 +122,11 @@ router.get('/estatisticas', function (req, res, next) {
 	
 	console.log(`Recuperando as estatísticas atuais`);
 
-	const instrucaoSql = `select 
-							max(temperatura) as temp_maxima, 
-							min(temperatura) as temp_minima, 
-							avg(temperatura) as temp_media,
-							max(umidade) as umidade_maxima, 
-							min(umidade) as umidade_minima, 
-							avg(umidade) as umidade_media 
-						from leitura`;
+	//const momentoHora = new Date(new Date()-(1000*60*60)) // correto
+	const momentoHora = new Date('06/11/2020') // temporario
+
+	const instrucaoSql = `select avg(luminosidade) as lumi, avg(temperatura) as temp, avg(umidade) as umid from sensores
+	where dataHora >= '2020-06-11';`;
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
