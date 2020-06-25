@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/cadastro.css">
   <script src="js/cadastro.js"></script>
+  <link rel="icon" type="image/png" href="./imagens/LOGO.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro</title>
 </head>
@@ -48,20 +49,24 @@
       </div>
     </div>
   </center>
+  <div class="error" id="texto" style="display: none;"></div>
 </body>
-
 </html>
-<div class="error" id="texto" style="display: none;"></div>
 <script>
   let erros = [];
   function verificar() {
     event.preventDefault();
 
     let login = (id_nome.value);
+    login = login.trimStart().trimEnd();
     let empresa = (nome_empresa.value);
+    empresa = empresa.trimStart().trimEnd();
     let e_mail = (email.value);
+    e_mail = e_mail.trimStart().trimEnd();
     let senha = (senhas.value);
+    senha = senha.trimStart().trimEnd();
     let senha_confirme = (senhas1.value);
+    senha_confirme = senha_confirme.trimStart().trimEnd();
     let cep = (cep1.value);
     texto.innerHTML = '';
     erros = [];

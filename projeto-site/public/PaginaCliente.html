@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="./imagens/LOGO.png">
   <title>Pagina do Cliente</title>
   <script src="js/anima-menu.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
@@ -11,6 +12,7 @@
   <script type="text/javascript" src="https://www.chartjs.org/samples/latest/utils.js"></script>
   <link rel="stylesheet" href="css/header-paginacliente.css">
   <link rel="stylesheet" href="css/paginaCliente.css" />
+  <script type="text/javascript" src="funcoes.js"></script>
   <style>
     canvas {
       -moz-user-select: none;
@@ -25,7 +27,7 @@
     <span>Olá, <b id="b_usuario"></b></span>
     <a href="#">Dashboard</a>
     <a href="suporte.html">Suporte</a>
-    <a href="home.html">Sair</a>
+    <a href="#" onclick="logoff()" >Sair</a>
   </div>
   <div class="header">
     <img src="./imagens/Logo.png" class="logo" onclick="openNav()">
@@ -73,6 +75,7 @@
 
 <script>
 
+verificar_autenticacao();
 
   window.onload = obterDadosTodos;
 

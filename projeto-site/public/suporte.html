@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="./imagens/LOGO.png">
+    <title>Suporte</title>
     <link rel="stylesheet" href="css/suporte.css">
     <link rel="stylesheet" href="css/header-paginacliente.css">
     <script src="js/anima-menu.js"></script>
+    <script type="text/javascript" src="funcoes.js"></script>
 </head>
 <body>
     <div class="sidebar" id="mySidebar">
@@ -14,7 +16,7 @@
        <span>Olá, <b id="b_usuario"></b></span> 
         <a href="PaginaCliente.html">Dashboard</a>
         <a href="suporte.html">Suporte</a>
-        <a href="home.html">Sair</a>
+        <a href="#" onclick="logoff()">Sair</a>
       </div>
   
       <div class="header">
@@ -79,4 +81,8 @@
       </div>
 </body>
 </html>
+<script>
 
+verificar_autenticacao();
+
+</script>
