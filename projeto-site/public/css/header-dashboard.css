@@ -7,6 +7,9 @@
     transition: 0.3s;
   
   }
+  .sidebar img{
+    width: 19%;
+  }
   .sidebar a {
     padding: 8px;
     text-decoration: none;
@@ -14,16 +17,17 @@
     color: white;
     display: block;
     margin-top: 20px;
-    background-color: rgb(0, 153, 255);
   }
+  
    .sidebar span{
      color: white;
      font-size: 26px;
-  
+     
    }
   
   .sidebar a:hover {
-    color: #459eff;
+background-color:  #459eff;  
+transition-duration: 2s;  
   
   }
   
