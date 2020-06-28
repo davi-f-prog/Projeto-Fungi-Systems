@@ -34,7 +34,32 @@
   </div>
   <div class="main" id="main">
     <div class="container">
+      <div class="alert lumi2" id="alertLumi">
+        <h3>Atenção Luminosidade fora de regulação</h3>
+        <img src="imagens/ideia.png" id="icone_lumi" alt="">
+        Luminosidade Registrada: <b style="color: red;" id="resultado_lumi">?</b>
+        <br> <br>
+        <button onclick="some_alert_lumi()">Ok</button>
+      </div>
+
+      <div class="alert umi2" id="alertUmi">
+        <h3>Atenção Umidade fora do regulação</h3>
+        <img src="imagens/agua.png" id="icone_umi" alt="">
+        Umidade Registrado: <b style="color: red;" id="resultado_umi">?</b>
+        <br> <br>
+        <button onclick="some_alert_umi()">Ok</button>
+      </div>
+
+      <div class="alert temp2" id="alertTemp">
+        <h3>Atenção Temperatura fora da regulação</h3>
+        <img src="imagens/temperatura.png" id="icone_temp" alt="">
+        Temperatura Registrada: <b style="color: red;" id="resultado_temp">?</b>
+        <br> <br>
+        <button onclick="some_alert_temp()">Ok</button>
+      </div>
+
       <h1 class="titulo-dashboard">Fungi Systems<br>Dashboard</h1>
+   
       <div class="box temp">
         <img src="imagens/temperatura.png" alt="">
         <h2 id="h_temp">100%</h2>
@@ -42,6 +67,7 @@
       <div class="box humi">
         <img src="imagens/agua.png" alt="">
         <h2 id="h_umid">80%</h2>
+        <span id="quant"></span>
       </div>
       <div class="box lumi">
         <img  src="imagens/ideia.png" onmouseout="this.src='imagens/ideia.png';" onmouseover="this.src='imagens/idea2.png';" />
@@ -59,6 +85,14 @@
       <div class="graph status_estufa">
         <h2>Status da Estufa</h2>
         <canvas id="status_estufa"></canvas>
+        <br> <br>
+        <img src="imagens/LOGO.png" style="width: 32%; height: 70px;" alt="">
+        <br>
+       Cogumelos prontos: <span style="color: green;" id="id_prontos">?</span>
+        <br> <br>
+        Cogumelos em preparo: <span style="color: red;" id="id_preparo">?</span>
+        <br> <br>
+        Total Plantados: <span style="color: blue;" id="id_total">?</span>
       </div>
       <div class="graph luminosidade">
         <h3>Luminosidade</h3>
@@ -74,6 +108,17 @@
 </html>
 
 <script>
+  function some_alert_lumi(){
+    alertLumi.style.display = 'none'
+
+    
+  }
+  function some_alert_umi(){
+    alertUmi.style.display = 'none'
+  }
+  function some_alert_temp(){
+    alertTemp.style.display = 'none'
+  }
 
 verificar_autenticacao();
 
@@ -154,6 +199,33 @@ verificar_autenticacao();
           dados.datasets[0].data.push(novoRegistro.temperatura); // incluir uma nova leitura de temperatura
           dados.datasets[1].data.push(novoRegistro.umidade); // incluir uma nova leitura de umidade
           window.grafico_linha.update();
+                   resultado_umi.innerHTML = novoRegistro.umidade;
+                   resultado_temp.innerHTML = novoRegistro.temperatura;
+                   if(novoRegistro.temperatura > 23 || novoRegistro.temperatura < 13){
+                          alertTemp.style.display = 'block';
+                             
+                          setInterval(() =>{
+                                icone_temp.style.transform = "rotate(20deg)"
+                                icone_temp.src = 'imagens/temperatura.alert.png'
+                                },1000);
+
+                           setInterval(() =>{
+                                icone_temp.style.transform = "rotate(-20deg)"
+                                },2000);
+  
+                   }
+                   else if(novoRegistro.umidade >85 || novoRegistro.umidade < 60){
+                          alertUmi.style.display = 'block';
+
+                          setInterval(() =>{
+                                icone_umi.style.transform = "rotate(20deg)"
+                                icone_umi.src = 'imagens/agua.alert.png'
+                                },1000);
+
+                           setInterval(() =>{
+                                icone_umi.style.transform = "rotate(-20deg)"
+                                },2000);
+                   }
 
           setTimeout(atualizarGrafico, 5000);
         });
@@ -224,6 +296,7 @@ verificar_autenticacao();
             // que gerou na consulta ao banco de dados
 
             dados.labels.push(registro.momento_grafico);
+            console.log(registro);
 
             dados.datasets[0].data.push(registro.temperatura);
             dados.datasets[1].data.push(registro.umidade);
@@ -286,6 +359,8 @@ fetch('/leituras/qt_pronto', { cache: 'no-store' }).then(function (response) {
         response.json().then(function (resposta) {
 
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+           
+
 
             resposta.reverse();
 
@@ -296,6 +371,11 @@ fetch('/leituras/qt_pronto', { cache: 'no-store' }).then(function (response) {
       
                 data_3.datasets[0].data.push(registro.quantidade);
                 data_3.datasets[0].data.push(registro.total);
+                id_prontos.innerHTML = registro.total;
+                id_preparo.innerHTML = registro.quantidade;
+
+                var total_cogumelo = registro.total + registro.quantidade;
+                id_total.innerHTML = total_cogumelo;
             }
             window.status_estufa.data=data_3;          
             window.status_estufa.update();
@@ -352,6 +432,22 @@ obterDadosGraficoPizza();
           dados_lumi.datasets[0].data.shift();
           dados_lumi.datasets[0].data.push(novoRegistro.luminosidade); // incluir uma nova leitura de luminosidade
           window.myLineChart.update();
+
+          resultado_lumi.innerHTML = novoRegistro.luminosidade;
+
+          if(novoRegistro.luminosidade > 450 || novoRegistro.luminosidade < 250){
+            alertLumi.style.display ='block';
+
+            setInterval(() =>{
+                                icone_lumi.style.transform = "rotate(20deg)"
+                                icone_lumi.src = 'imagens/ideia.alert.png'
+                                },1000);
+
+                           setInterval(() =>{
+                                icone_lumi.style.transform = "rotate(-20deg)"
+                                },2000);
+  
+          }
 
           setTimeout(atualizarGraficoLumi, 5000);
         });

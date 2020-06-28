@@ -22,6 +22,41 @@ body {
   color: white;
   font-family: Revamped;
 }
+.alert{
+  width: 29%;
+  height: 200px;
+  background-color: white;
+  position: absolute;
+  border-radius: 50px;
+  border: 10px solid red;
+  box-shadow: 2px 23px 30px 0px red;
+
+
+}
+.alert button{
+  width: 20%;
+  height: 30px;
+  background-color: red;
+  color: white;
+  border: 3px solid black;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.alert img{
+  width: 19%;
+}
+.lumi2{
+  display: none;
+  margin-left: 32%;
+}
+.umi2{
+  display: none;
+}
+.temp2{
+  display: none;
+  margin-left: 64%;
+
+}
 .box {
   display: inline-block;
   width: 30%;
@@ -36,9 +71,7 @@ body {
 .box img{
   width: 19%;
 }
-.box:hover {
-  opacity: 0.5;
-}
+
 
 .temp {
   background-image: linear-gradient(to left, #00E1FD 50%, #FC007A);
@@ -72,6 +105,7 @@ body {
   height: 500px;
   background-color: #0a1725;
   color: #459eff;
+  transform: translate(0%,-76%);
 }
 
 .graficos {
