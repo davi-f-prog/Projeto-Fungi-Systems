@@ -62,15 +62,15 @@
    
       <div class="box temp">
         <img src="imagens/temperatura.png" alt="">
-        <h2 id="h_temp">100%</h2>
+        <h2 id="h_temp"></h2>
       </div>
       <div class="box humi">
         <img src="imagens/agua.png" alt="">
-        <h2 id="h_umid">80%</h2>
+        <h2 id="h_umid"></h2>
       </div>
       <div class="box lumi">
         <img  src="imagens/ideia.png" onmouseout="this.src='imagens/ideia.png';" onmouseover="this.src='imagens/idea2.png';" />
-        <h2 id="h_lumi">20%</h2>
+        <h2 id="h_lumi"></h2>
       </div>
       <div class="graficos">
         <h2>Temperatura e Humidade</h2>
@@ -136,9 +136,9 @@ verificar_autenticacao();
 
           console.log(`Dados recebidos de estati sticas: ${JSON.stringify(novoRegistro)}`);
 
-          h_temp.innerHTML = novoRegistro.temp.toFixed(1)+`%`;
+          h_temp.innerHTML = novoRegistro.temp.toFixed(1)+`ºC`;
           h_umid.innerHTML = novoRegistro.umid.toFixed(1)+`%`;
-          h_lumi.innerHTML = novoRegistro.lumi;
+          h_lumi.innerHTML = novoRegistro.lumi+` lux`;
 
           setTimeout(obterEstatisticas, 30000);
         });

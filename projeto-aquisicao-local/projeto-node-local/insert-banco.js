@@ -4,10 +4,10 @@
  npm start
  talvez mostre uma mensagem de erro de placa arduino 
  mas depois vai começar a registrar os dados
-*/ 
+*/
 
 // se usar 'true' aqui, os dados serão gerados aleatórios e não recebidos da placa arduíno
-const gerar_dados_aleatorios = true; 
+const gerar_dados_aleatorios = true;
 const intervalo_geracao_aleatoria_segundos = 5; // intervalo, em segundos, no qual os dados aleatórios serão gerados
 
 // leitura dos dados do Arduino
@@ -95,10 +95,10 @@ function registrar_leitura(temperatura, umidade, luminosidade) {
         
         delete from Sensores where idSensores not in 
         (select top ${registros_mantidos_tabela_leitura} idSensores from Sensores order by idSensores desc);`)
-        .then(() => {
-            console.log('Registro inserido com sucesso!');
-        });
-        
+            .then(() => {
+                console.log('Registro inserido com sucesso!');
+            });
+
 
     }).catch(erro => {
 
@@ -112,29 +112,36 @@ function registrar_leitura(temperatura, umidade, luminosidade) {
 
 // função que retorna data e hora atual no formato aaaa-mm-dd HH:mm:ss
 function agora() {
-	const momento_atual = new Date();
-	const retorno = `${momento_atual.toLocaleDateString()} ${momento_atual.toLocaleTimeString()}`;
-	console.log(`Data e hora atuais: ${retorno}`);
-	return retorno;
+    const momento_atual = new Date();
+    const retorno = `${momento_atual.toLocaleDateString()} ${momento_atual.toLocaleTimeString()}`;
+    console.log(`Data e hora atuais: ${retorno}`);
+    return retorno;
 }
 
 if (gerar_dados_aleatorios) {
-	// dados aleatórios
-	setInterval(function() {
-		console.log('Gerando valores aleatórios!');
-		registrar_leitura(Math.min(Math.random()*100, 60), Math.min(Math.random()*200, 100),parseInt(Math.random()*1024))
-	}, intervalo_geracao_aleatoria_segundos * 1000);
+    // dados aleatórios
+    setInterval(function () {
+        var tempmin = 15;
+        var tempmax = 27;
+        var umidmin = 70;
+        var umidmax = 95;
+        var lumimin = 1000;
+        var lumimax = 2000;
+        
+        console.log('Gerando valores aleatórios!');
+        registrar_leitura((Math.floor(Math.random() * (tempmax - tempmin + 1)) +tempmin),(Math.floor(Math.random() * (umidmax - umidmin + 1)) +umidmin),(Math.floor(Math.random() * (lumimax - lumimin + 1)) +lumimin))
+    }, intervalo_geracao_aleatoria_segundos * 1000);
 } else {
-	// iniciando a "escuta" de dispositivos Arduino.
-	console.log('Iniciando obtenção de valores do Arduino!');
-	iniciar_escuta();
+    // iniciando a "escuta" de dispositivos Arduino.
+    console.log('Iniciando obtenção de valores do Arduino!');
+    iniciar_escuta();
 }
 
 /*
  abrir a pasta deste arquivo via git bash e executar:
  npm i
  npm start
- talvez mostre uma mensagem de erro de placa arduino 
+ talvez mostre uma mensagem de erro de placa arduino
  mas depois vai começar a registrar os dados
 */
 
