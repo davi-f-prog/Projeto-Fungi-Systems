@@ -125,8 +125,17 @@ router.get('/estatisticas', function (req, res, next) {
 	//const momentoHora = new Date(new Date()-(1000*60*60)) // correto
 	const momentoHora = new Date('06/11/2020') // temporario
 
-	const instrucaoSql = `select avg(luminosidade) as lumi, avg(temperatura) as temp, avg(umidade) as umid from sensores
-	where dataHora >= '2020-06-11';`;
+	var dataatual = new Date();
+	const anoatual = dataatual.getFullYear();
+	const mesatual = dataatual.getMonth();
+	const diaatual = dataatual.getDate();
+	const horaatual = dataatual.getHours();
+	const minatual = dataatual.getMinutes();
+	const segatual = dataatual.getSeconds();
+
+	const instrucaoSql = `select avg(luminosidade) as lumi, avg(temperatura) as temp, avg(umidade) as umid from sensores where dataHora >= '${anoatual}-0${mesatual+1}-${diaatual} ${horaatual-1}:${minatual}:${segatual}' and dataHora <= '${anoatual}-0${mesatual+1}-${diaatual} ${horaatual}:${minatual}:${segatual}';`;
+
+
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
