@@ -67,7 +67,6 @@
       <div class="box humi">
         <img src="imagens/agua.png" alt="">
         <h2 id="h_umid">80%</h2>
-        <span id="quant"></span>
       </div>
       <div class="box lumi">
         <img  src="imagens/ideia.png" onmouseout="this.src='imagens/ideia.png';" onmouseover="this.src='imagens/idea2.png';" />
@@ -201,7 +200,7 @@ verificar_autenticacao();
           window.grafico_linha.update();
                    resultado_umi.innerHTML = novoRegistro.umidade;
                    resultado_temp.innerHTML = novoRegistro.temperatura;
-                   if(novoRegistro.temperatura > 23 || novoRegistro.temperatura < 13){
+                   if(novoRegistro.temperatura > 24 || novoRegistro.temperatura < 18){
                           alertTemp.style.display = 'block';
                              
                           setInterval(() =>{
@@ -214,7 +213,7 @@ verificar_autenticacao();
                                 },2000);
   
                    }
-                   else if(novoRegistro.umidade >85 || novoRegistro.umidade < 60){
+                   else if(novoRegistro.umidade >90 || novoRegistro.umidade < 85){
                           alertUmi.style.display = 'block';
 
                           setInterval(() =>{
@@ -435,7 +434,7 @@ obterDadosGraficoPizza();
 
           resultado_lumi.innerHTML = novoRegistro.luminosidade;
 
-          if(novoRegistro.luminosidade > 450 || novoRegistro.luminosidade < 250){
+          if(novoRegistro.luminosidade > 2000 || novoRegistro.luminosidade < 1000 ){
             alertLumi.style.display ='block';
 
             setInterval(() =>{
