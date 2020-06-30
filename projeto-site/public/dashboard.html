@@ -108,9 +108,7 @@
 
 <script>
   function some_alert_lumi(){
-    alertLumi.style.display = 'none'
-
-    
+    alertLumi.style.display = 'none'    
   }
   function some_alert_umi(){
     alertUmi.style.display = 'none'
@@ -351,6 +349,7 @@ var status_estufa = new Chart(ctx3, {
   }
 });
 
+//Exibe os dados puxados na /leituras/função qt-prontos
 function obterDadosGraficoPizza() {
 
 fetch('/leituras/qt_pronto', { cache: 'no-store' }).then(function (response) {
@@ -367,11 +366,10 @@ fetch('/leituras/qt_pronto', { cache: 'no-store' }).then(function (response) {
 
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
-      
                 data_3.datasets[0].data.push(registro.quantidade);
                 data_3.datasets[0].data.push(registro.total);
-                id_prontos.innerHTML = registro.total;
-                id_preparo.innerHTML = registro.quantidade;
+                id_prontos.innerHTML = registro.quantidade;
+                id_preparo.innerHTML = registro.total;
 
                 var total_cogumelo = registro.total + registro.quantidade;
                 id_total.innerHTML = total_cogumelo;
@@ -510,6 +508,7 @@ obterDadosGraficoPizza();
 
   // altere aqui como os dados serão exibidos
   // e como são recuperados do BackEnd
+  //Exibe os dados apenas de luminosidade puxados da função /leituras/ultimas
   function obterDadosGraficoLumi() {
 
     fetch('/leituras/ultimas', { cache: 'no-store' }).then(function (response) {

@@ -125,8 +125,8 @@ if (gerar_dados_aleatorios) {
         var tempmax = 27;
         var umidmin = 70;
         var umidmax = 95;
-        var lumimin = 1000;
-        var lumimax = 2000;
+        var lumimin = 900;
+        var lumimax = 2100;
         
         console.log('Gerando valores aleatórios!');
         registrar_leitura((Math.floor(Math.random() * (tempmax - tempmin + 1)) +tempmin),(Math.floor(Math.random() * (umidmax - umidmin + 1)) +umidmin),(Math.floor(Math.random() * (lumimax - lumimin + 1)) +lumimin))
