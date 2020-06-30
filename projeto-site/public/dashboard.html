@@ -213,7 +213,7 @@ verificar_autenticacao();
                                 },2000);
   
                    }
-                   else if(novoRegistro.umidade >90 || novoRegistro.umidade < 85){
+                   if(novoRegistro.umidade >90 || novoRegistro.umidade < 85){
                           alertUmi.style.display = 'block';
 
                           setInterval(() =>{
